@@ -35,7 +35,7 @@ class MyPlaylistResponse {
     if (json['items'] != null) {
       items = [];
       json['items'].forEach((v) {
-        items?.add(Items.fromJson(v));
+        items?.add(PlaylistItems.fromJson(v));
       });
     }
   }
@@ -46,7 +46,7 @@ class MyPlaylistResponse {
   num? offset;
   String? previous;
   num? total;
-  List<Items>? items;
+  List<PlaylistItems>? items;
 
   MyPlaylistResponse copyWith({
     String? href,
@@ -55,7 +55,7 @@ class MyPlaylistResponse {
     num? offset,
     String? previous,
     num? total,
-    List<Items>? items,
+    List<PlaylistItems>? items,
   }) =>
       MyPlaylistResponse(
         href: href ?? this.href,
@@ -96,12 +96,12 @@ class MyPlaylistResponse {
 /// type : "string"
 /// uri : "string"
 
-Items itemsFromJson(String str) => Items.fromJson(json.decode(str));
+PlaylistItems itemsFromJson(String str) => PlaylistItems.fromJson(json.decode(str));
 
-String itemsToJson(Items data) => json.encode(data.toJson());
+String itemsToJson(PlaylistItems data) => json.encode(data.toJson());
 
-class Items {
-  Items({
+class PlaylistItems {
+  PlaylistItems({
     this.collaborative,
     this.description,
     this.externalUrls,
@@ -117,7 +117,7 @@ class Items {
     this.uri,
   });
 
-  Items.fromJson(dynamic json) {
+  PlaylistItems.fromJson(dynamic json) {
     collaborative = json['collaborative'];
     description = json['description'];
     externalUrls = json['external_urls'] != null
@@ -154,7 +154,7 @@ class Items {
   String? type;
   String? uri;
 
-  Items copyWith({
+  PlaylistItems copyWith({
     bool? collaborative,
     String? description,
     ExternalUrls? externalUrls,
@@ -169,7 +169,7 @@ class Items {
     String? type,
     String? uri,
   }) =>
-      Items(
+      PlaylistItems(
         collaborative: collaborative ?? this.collaborative,
         description: description ?? this.description,
         externalUrls: externalUrls ?? this.externalUrls,

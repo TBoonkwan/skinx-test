@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
+import 'package:skinx_test/features/search/domain/entity/search_ui_model.dart';
 import 'package:skinx_test/features/search/presentation/search_cubit.dart';
 import 'package:skinx_test/features/search/presentation/search_state.dart';
-import 'package:skinx_test/shared/gridview/gridview_fixed_height.dart';
 import 'package:skinx_test/shared/loading/loading_indicator.dart';
 import 'package:skinx_test/theme/color/app_color.dart';
 
@@ -26,12 +25,6 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   @override
-  void dispose() {
-    context.read<SearchCubit>().reset();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final SearchCubit cubit = context.read<SearchCubit>();
     return BlocListener<SearchCubit, SearchState>(
@@ -44,7 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
               builder: (context) => AlertDialog(
                 title: const Text("Sorry"),
                 content: const Text(
-                    "Cannot get your Search right now, please try again later"),
+                    "Cannot get your search right now, please try again later"),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context),
@@ -62,6 +55,15 @@ class _SearchScreenState extends State<SearchScreen> {
         appBar: AppBar(
           backgroundColor: AppColor.primaryTextColor,
           toolbarHeight: 56,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: AppColor.tertiaryTextColor,
+            ),
+          ),
           title: const Text(
             "My Search",
             style: TextStyle(
@@ -76,45 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 color: AppColor.tertiaryTextColor,
               ),
             ),
-            BlocConsumer<SearchCubit, SearchState>(
-              builder: (BuildContext context, SearchState state) {
-                UserProfileResponse? user = state.userProfileResponse;
-
-                if (user == null) {
-                  return const SizedBox();
-                }
-                if (user.images?.isEmpty == true) {
-                  return IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.account_circle_outlined,
-                      color: AppColor.tertiaryTextColor,
-                    ),
-                  );
-                }
-                return IconButton(
-                  onPressed: () {},
-                  icon: Image.network(
-                    state.userProfileResponse?.images?.first.url.toString() ??
-                        "",
-                  ),
-                );
-              },
-              listenWhen: (prev, current) =>
-                  current.userProfileResponse != prev.userProfileResponse,
-              listener: (context, state) async {},
-            ),
-            const SizedBox(
-              width: 16,
-            ),
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(
-            Icons.add,
-            color: AppColor.brandingColor,
-          ),
         ),
         body: NotificationListener<ScrollNotification>(
           onNotification: (scrollNotification) {
@@ -124,106 +88,111 @@ class _SearchScreenState extends State<SearchScreen> {
             }
             return true;
           },
-          child: BlocConsumer<SearchCubit, SearchState>(
-            listenWhen: (prev, current) =>
-                current.eventState != prev.eventState,
-            listener: (context, state) async {},
-            builder: (BuildContext context, SearchState state) {
-              if (state.eventState == SearchEventState.initial) {
-                return LoadingIndicator(
-                  size: Size(
-                    MediaQuery.sizeOf(context).width,
-                    MediaQuery.sizeOf(context).height * 0.7,
-                  ),
-                );
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (scrollNotification) {
+              if (scrollNotification.metrics.pixels ==
+                  scrollNotification.metrics.maxScrollExtent) {
+                cubit.loadMoreItem();
               }
+              return true;
+            },
+            child: BlocConsumer<SearchCubit, SearchState>(
+              listenWhen: (prev, current) =>
+                  current.eventState != prev.eventState,
+              listener: (context, state) async {},
+              builder: (BuildContext context, SearchState state) {
+                if (state.eventState == SearchEventState.initial) {
+                  return LoadingIndicator(
+                    size: Size(
+                      MediaQuery.sizeOf(context).width,
+                      MediaQuery.sizeOf(context).height * 0.7,
+                    ),
+                  );
+                }
 
-              if (state.eventState == SearchEventState.empty) {
-                return SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: MediaQuery.sizeOf(context).height * 0.7,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Center(
-                      child: Text(
-                        "No Search",
-                        style: TextStyle(
-                          color: AppColor.tertiaryTextColor,
+                if (state.eventState == SearchEventState.empty) {
+                  return SizedBox(
+                    width: MediaQuery.sizeOf(context).width,
+                    height: MediaQuery.sizeOf(context).height * 0.7,
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Center(
+                        child: Text(
+                          "No Search",
+                          style: TextStyle(
+                            color: AppColor.tertiaryTextColor,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              }
+                  );
+                }
 
-              if (state.eventState == SearchEventState.success) {
-                return GridView.builder(
-                  padding: const EdgeInsets.all(
-                    16,
-                  ),
-                  gridDelegate: const GridViewFixHeight(
-                    height: 208,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    crossAxisCount: 2,
-                  ),
-                  itemCount: state.search.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final item = state.search[index];
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            item.image,
-                            height: 160,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
+                if (state.eventState == SearchEventState.success) {
+                  return ListView.separated(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    itemBuilder: (BuildContext context, int index) {
+                      final SearchUIModel item = state.search[index];
+                      return ListTile(
+                        leading: Image.network(item.image),
+                        title: Text(
                           item.title,
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
                               ?.copyWith(color: AppColor.tertiaryTextColor),
                         ),
-                        Text(
+                        subtitle: Text(
                           item.subTitle,
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge
                               ?.copyWith(color: AppColor.secondaryTextColor),
                         ),
-                      ],
-                    );
-                  },
-                );
-              }
+                      );
+                    },
+                    itemCount: state.search.length,
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(
+                      thickness: 16,
+                      color: Colors.transparent,
+                    ),
+                  );
+                }
 
-              if (state.eventState == SearchEventState.networkError) {
-                return SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.7,
-                  child: Center(
-                    child: TextButton(
-                      onPressed: () {
-                        cubit.initial();
-                      },
-                      child: const Text(
-                        "Try Again",
+                if (state.eventState == SearchEventState.networkError) {
+                  return SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.7,
+                    child: Center(
+                      child: TextButton(
+                        onPressed: () {
+                          cubit.initial();
+                        },
+                        child: const Text(
+                          "Try Again",
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }
+                  );
+                }
 
-              return const SizedBox();
-            },
+                return const SizedBox();
+              },
+            ),
           ),
+        ),
+        bottomNavigationBar: BlocConsumer<SearchCubit, SearchState>(
+          listenWhen: (prev, current) => current.eventState != prev.eventState,
+          listener: (context, state) async {},
+          builder: (context, state) {
+            if (state.actionState == SearchActionState.loadMore) {
+              return const LoadingIndicator(size: Size(80, 80));
+            }
+
+            return const SizedBox(
+              height: 0,
+            );
+          },
         ),
       ),
     );

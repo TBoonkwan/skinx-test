@@ -23,7 +23,7 @@ class GetSearchUseCase extends IGetSearchUseCase {
   Future<SearchModel> getSearch({
     required MySearchRequest request,
   }) async {
-    final MySearchResponse response = await searchRepository.getSearch(
+    final SearchResponse response = await searchRepository.getSearch(
       request: request,
     );
     final SearchModel uiModel = mapper.map(

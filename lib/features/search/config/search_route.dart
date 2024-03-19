@@ -1,4 +1,4 @@
-import 'package:skinx_test/features/Search/presentation/Search_screen.dart';
+import 'package:skinx_test/features/search/presentation/search_screen.dart';
 
 class SearchRoute {
   static String searchScreen = '/SearchScreen';

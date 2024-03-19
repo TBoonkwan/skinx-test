@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:skinx_test/features/search/data/model/search_request.dart';
 import 'package:skinx_test/features/search/data/model/search_response.dart';
-import 'package:skinx_test/features/search/data/source/playlist_data_source.dart';
+import 'package:skinx_test/features/search/data/source/search_data_source.dart';
 
 class RemoteSearchDataSource extends SearchDataSource {
   final Dio dio;
@@ -11,13 +11,13 @@ class RemoteSearchDataSource extends SearchDataSource {
   });
 
   @override
-  Future<MySearchResponse> getSearch({
+  Future<SearchResponse> getSearch({
     required MySearchRequest request,
   }) async {
     var response = await dio.get(
-      "users/${request.userId}/searchs",
+      "search",
       queryParameters: request.toJson(),
     );
-    return MySearchResponse.fromJson(response.data);
+    return SearchResponse.fromJson(response.data);
   }
 }
