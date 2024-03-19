@@ -3,10 +3,10 @@ import 'package:skinx_test/features/playlist/data/model/my_playlist_response.dar
 import 'package:skinx_test/features/playlist/data/source/playlist_data_source.dart';
 import 'package:skinx_test/features/playlist/domain/repository/playlist_repository.dart';
 
-class TodoListRepository extends IPlaylistRepository {
+class PlaylistRepository extends IPlaylistRepository {
   PlaylistDataSource dataSource;
 
-  TodoListRepository({
+  PlaylistRepository({
     required this.dataSource,
   });
 

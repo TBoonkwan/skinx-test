@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:oauth2_client/access_token_response.dart';
 import 'package:skinx_test/core/constants/app_constants.dart';
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
 import 'package:skinx_test/features/authentication/data/source/authentication_data_source.dart';

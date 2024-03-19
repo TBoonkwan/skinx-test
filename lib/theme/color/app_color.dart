@@ -8,9 +8,4 @@ class AppColor {
   static const primaryTextColor = Color(0xff121212);
   static const secondaryTextColor = Color(0xff535353);
   static const tertiaryTextColor = Color(0xffb3b3b3);
-
-
-
-
-
 }

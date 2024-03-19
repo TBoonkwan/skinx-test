@@ -6,23 +6,22 @@ import "package:skinx_test/core/constants/app_constants.dart";
 import "package:skinx_test/core/exception/app_exception.dart";
 import "package:skinx_test/features/authentication/data/model/user_profile_response.dart";
 import "package:skinx_test/features/authentication/data/repository/spotify_authentication_repository.dart";
-import "package:skinx_test/features/playlist/data/model/my_playlist_request.dart";
-import "package:skinx_test/features/playlist/domain/entity/playlist_ui_model.dart";
-import "package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase.dart";
+import "package:skinx_test/features/search/data/model/search_request.dart";
+import "package:skinx_test/features/search/domain/entity/search_ui_model.dart";
+import "package:skinx_test/features/search/domain/usecase/search_usecase.dart";
+import "package:skinx_test/features/search/presentation/search_state.dart";
 
-import "playlist_state.dart";
-
-class PlaylistCubit extends Cubit<PlaylistState> {
-  IGetPlaylistUseCase playlistUseCase;
+class SearchCubit extends Cubit<SearchState> {
+  IGetSearchUseCase searchUseCase;
   SpotifyAuthenticationRepository spotifyRepository;
 
   num totalPage = 0;
   num nextPage = 0;
 
-  PlaylistCubit({
-    required this.playlistUseCase,
+  SearchCubit({
+    required this.searchUseCase,
     required this.spotifyRepository,
-  }) : super(const PlaylistState());
+  }) : super(const SearchState());
 
   Future<void> authentication() async {
     final GetStorage storage = GetStorage();
@@ -33,12 +32,12 @@ class PlaylistCubit extends Cubit<PlaylistState> {
     storage.write(AppConstants.refreshToken, response.refreshToken);
   }
 
-  Future<PlaylistModel> getMyPlaylist({
+  Future<SearchModel> getMySearch({
     required UserProfileResponse userProfileResponse,
   }) async {
     try {
-      return await playlistUseCase.getPlaylist(
-        request: MyPlaylistRequest(
+      return await searchUseCase.getSearch(
+        request: MySearchRequest(
           offset: nextPage,
           limit: 20,
           userId: userProfileResponse.id.toString(),
@@ -53,7 +52,7 @@ class PlaylistCubit extends Cubit<PlaylistState> {
     nextPage = 0;
 
     emit(
-      state.copyWith(eventState: PlaylistEventState.initial),
+      state.copyWith(eventState: SearchEventState.initial),
     );
 
     await authentication();
@@ -69,32 +68,32 @@ class PlaylistCubit extends Cubit<PlaylistState> {
         userProfileResponse: userProfileResponse);
 
     try {
-      final PlaylistModel model =
-          await getMyPlaylist(userProfileResponse: userProfileResponse);
+      final SearchModel model =
+          await getMySearch(userProfileResponse: userProfileResponse);
 
       totalPage = model.totalPage;
 
-      List<PlaylistUIModel> uiModel = model.uiModel;
+      List<SearchUIModel> uiModel = model.uiModel;
 
       if (uiModel.isEmpty == true) {
         emit(
           state.copyWith(
-            playlist: [],
-            eventState: PlaylistEventState.empty,
+            search: [],
+            eventState: SearchEventState.empty,
           ),
         );
       } else {
         emit(
           state.copyWith(
-            playlist: uiModel,
-            eventState: PlaylistEventState.success,
+            search: uiModel,
+            eventState: SearchEventState.success,
           ),
         );
       }
     } on Exception {
       emit(state.copyWith(
-        actionState: PlaylistActionState.networkError,
-        eventState: PlaylistEventState.networkError,
+        actionState: SearchActionState.networkError,
+        eventState: SearchEventState.networkError,
       ));
     }
   }
@@ -114,7 +113,7 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 //   );
 //
 //   try {
-//     final PlaylistModel model = await fetchTodoList();
+//     final SearchModel model = await fetchTodoList();
 //
 //     emit(
 //       state.copyWith(
@@ -136,6 +135,6 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 // }
 
   void reset() {
-    emit(const PlaylistState());
+    emit(const SearchState());
   }
 }

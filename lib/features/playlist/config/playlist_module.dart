@@ -8,7 +8,7 @@ import 'package:skinx_test/features/playlist/data/source/playlist_data_source.da
 import 'package:skinx_test/features/playlist/data/source/remote/remote_playlist_data_source.dart';
 import 'package:skinx_test/features/playlist/domain/mapper/playlist_mapper.dart';
 import 'package:skinx_test/features/playlist/domain/repository/playlist_repository.dart';
-import 'package:skinx_test/features/playlist/domain/usecase/get_tplaylist_usecase.dart';
+import 'package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase.dart';
 
 class PlaylistModule extends BaseModule {
   @override
@@ -24,7 +24,7 @@ class PlaylistModule extends BaseModule {
     );
 
     moduleProvider.registerFactory<IPlaylistRepository>(
-      () => TodoListRepository(
+      () => PlaylistRepository(
           dataSource: moduleProvider.get<PlaylistDataSource>(
               instanceName: AppConfig.getEnvironmentInstanceName())),
     );

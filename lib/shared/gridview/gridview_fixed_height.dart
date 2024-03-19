@@ -40,7 +40,8 @@ class GridViewFixHeight extends SliverGridDelegate {
   @override
   SliverGridLayout getLayout(SliverConstraints constraints) {
     assert(_debugAssertIsValid());
-    final double usableCrossAxisExtent = constraints.crossAxisExtent - crossAxisSpacing! * (crossAxisCount - 1);
+    final double usableCrossAxisExtent =
+        constraints.crossAxisExtent - crossAxisSpacing! * (crossAxisCount - 1);
     final double childCrossAxisExtent = usableCrossAxisExtent / crossAxisCount;
     final double? childMainAxisExtent = height;
     return SliverGridRegularTileLayout(
@@ -55,6 +56,9 @@ class GridViewFixHeight extends SliverGridDelegate {
 
   @override
   bool shouldRelayout(GridViewFixHeight oldDelegate) {
-    return oldDelegate.crossAxisCount != crossAxisCount || oldDelegate.mainAxisSpacing != mainAxisSpacing || oldDelegate.crossAxisSpacing != crossAxisSpacing || oldDelegate.height != height;
+    return oldDelegate.crossAxisCount != crossAxisCount ||
+        oldDelegate.mainAxisSpacing != mainAxisSpacing ||
+        oldDelegate.crossAxisSpacing != crossAxisSpacing ||
+        oldDelegate.height != height;
   }
 }

@@ -6,8 +6,6 @@ import 'package:skinx_test/core/provider/app_provider.dart';
 import 'package:skinx_test/core/route/app_route.dart';
 import 'package:skinx_test/di/app_module.dart';
 import 'package:skinx_test/features/main_screen.dart';
-import 'package:skinx_test/features/playlist/config/playlist_route.dart';
-import 'package:skinx_test/features/playlist/presentation/playlist_screen.dart';
 import 'package:skinx_test/theme/color/app_color.dart';
 
 void main() async {
