@@ -5,4 +5,8 @@ abstract class AuthenticationRepository {
   Future<AccessTokenResponse> authentication();
 
   Future<UserProfileResponse> getUserProfile();
+
+  Future saveUserProfile({
+    required UserProfileResponse userProfileResponse,
+  });
 }

@@ -13,29 +13,24 @@ class PlaylistModel {
 }
 
 class PlaylistUIModel extends Equatable {
-  final String title;
-  final List<MyTask> taskList;
-
-  const PlaylistUIModel({
-    required this.title,
-    required this.taskList,
-  });
-
-  @override
-  List<Object?> get props => [title, taskList];
-}
-
-class MyTask extends Equatable {
+  final String image;
   final String id;
   final String title;
-  final String description;
+  final String subTitle;
 
-  MyTask({
+  const PlaylistUIModel({
+    required this.image,
     required this.id,
     required this.title,
-    required this.description,
+    required this.subTitle,
   });
 
   @override
-  List<Object?> get props => [id, title, description];
+  // TODO: implement props
+  List<Object?> get props => [
+        image,
+        id,
+        title,
+        subTitle,
+      ];
 }

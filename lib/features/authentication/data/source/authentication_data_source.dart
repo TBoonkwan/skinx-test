@@ -2,4 +2,8 @@ import 'package:skinx_test/features/authentication/data/model/user_profile_respo
 
 abstract class AuthenticationDataSource {
   Future<UserProfileResponse> getUserProfile();
+
+  Future saveUserProfile({
+    required UserProfileResponse userProfileResponse,
+  });
 }

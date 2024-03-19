@@ -42,4 +42,13 @@ class SpotifyAuthenticationRepository extends AuthenticationRepository {
   Future<UserProfileResponse> getUserProfile() async {
     return await spotifyDataSource.getUserProfile();
   }
+
+  @override
+  Future saveUserProfile({
+    required UserProfileResponse userProfileResponse,
+  }) async {
+    return await spotifyDataSource.saveUserProfile(
+      userProfileResponse: userProfileResponse,
+    );
+  }
 }

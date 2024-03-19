@@ -35,7 +35,7 @@ class PlaylistModule extends BaseModule {
 
     moduleProvider.registerFactory<IGetPlaylistUseCase>(
       () => GetPlaylistUseCase(
-        TodoListRepository: moduleProvider.get<IPlaylistRepository>(),
+        playlistRepository: moduleProvider.get<IPlaylistRepository>(),
         mapper: moduleProvider.get(),
       ),
     );

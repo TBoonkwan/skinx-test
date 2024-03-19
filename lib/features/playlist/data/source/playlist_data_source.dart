@@ -1,8 +1,8 @@
-import 'package:skinx_test/features/playlist/data/model/playlist_request.dart';
-import 'package:skinx_test/features/playlist/data/model/playlist_response.dart';
+import 'package:skinx_test/features/playlist/data/model/my_playlist_request.dart';
+import 'package:skinx_test/features/playlist/data/model/my_playlist_response.dart';
 
 abstract class PlaylistDataSource {
-  Future<PlaylistResponse> getPlaylist({
-    required PlaylistRequest request,
+  Future<MyPlaylistResponse> getPlaylist({
+    required MyPlaylistRequest request,
   });
 }

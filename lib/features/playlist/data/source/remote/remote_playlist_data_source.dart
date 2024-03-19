@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:skinx_test/features/playlist/data/model/playlist_request.dart';
-import 'package:skinx_test/features/playlist/data/model/playlist_response.dart';
+import 'package:skinx_test/features/playlist/data/model/my_playlist_request.dart';
+import 'package:skinx_test/features/playlist/data/model/my_playlist_response.dart';
 import 'package:skinx_test/features/playlist/data/source/playlist_data_source.dart';
 
 class RemotePlaylistDataSource extends PlaylistDataSource {
@@ -11,13 +11,13 @@ class RemotePlaylistDataSource extends PlaylistDataSource {
   });
 
   @override
-  Future<PlaylistResponse> getPlaylist({
-    required PlaylistRequest request,
+  Future<MyPlaylistResponse> getPlaylist({
+    required MyPlaylistRequest request,
   }) async {
     var response = await dio.get(
-      "todo-list",
+      "users/${request.userId}/playlists",
       queryParameters: request.toJson(),
     );
-    return PlaylistResponse.fromJson(response.data);
+    return MyPlaylistResponse.fromJson(response.data);
   }
 }

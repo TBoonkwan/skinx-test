@@ -12,7 +12,7 @@ class ApiManager {
       receiveTimeout: const Duration(seconds: 30),
     );
 
-    final dio = Dio(options)
+    final Dio dio = Dio(options)
       ..interceptors.add(AuthenticationInterceptor())
       ..interceptors.add(
         LogInterceptor(
