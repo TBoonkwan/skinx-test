@@ -1,34 +1,34 @@
 import "package:equatable/equatable.dart";
-import "package:skinx_test/features/search/domain/entity/search_ui_model.dart";
+import "package:skinx_test/features/album/domain/entity/album_ui_model.dart";
 
 class AlbumState extends Equatable {
   final AlbumEventState? eventState;
   final AlbumActionState? actionState;
 
-  final List<SearchUIModel> search;
+  final AlbumUIModel? albumDetail;
 
   const AlbumState({
     this.eventState = AlbumEventState.none,
     this.actionState = AlbumActionState.none,
-    this.search = const [],
+    this.albumDetail,
   });
 
   @override
   List<Object?> get props => [
         eventState,
         actionState,
-        search,
+        albumDetail,
       ];
 
   AlbumState copyWith({
     AlbumEventState? eventState,
     AlbumActionState? actionState,
-    List<SearchUIModel>? search,
+    AlbumUIModel? albumDetail,
   }) {
     return AlbumState(
       eventState: eventState ?? this.eventState,
       actionState: actionState ?? this.actionState,
-      search: search ?? this.search,
+      albumDetail: albumDetail ?? this.albumDetail,
     );
   }
 }

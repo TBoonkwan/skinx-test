@@ -1,12 +1,12 @@
+import 'package:skinx_test/features/album/data/model/album_request.dart';
+import 'package:skinx_test/features/album/data/model/album_response.dart';
+import 'package:skinx_test/features/album/domain/entity/album_ui_model.dart';
 import 'package:skinx_test/features/album/domain/mapper/album_mapper.dart';
 import 'package:skinx_test/features/album/domain/repository/album_repository.dart';
-import 'package:skinx_test/features/search/data/model/search_request.dart';
-import 'package:skinx_test/features/search/data/model/search_response.dart';
-import 'package:skinx_test/features/search/domain/entity/search_ui_model.dart';
 
 abstract class IGetAlbumUseCase {
-  Future<SearchModel> getAlbumDetail({
-    required MySearchRequest request,
+  Future<AlbumUIModel?> getAlbumDetail({
+    required AlbumRequest request,
   });
 }
 
@@ -20,13 +20,13 @@ class GetAlbumUseCase extends IGetAlbumUseCase {
   });
 
   @override
-  Future<SearchModel> getAlbumDetail({
-    required MySearchRequest request,
+  Future<AlbumUIModel?> getAlbumDetail({
+    required AlbumRequest request,
   }) async {
-    final SearchResponse response = await albumRepository.getAlbumDetail(
+    final AlbumResponse response = await albumRepository.getAlbumDetail(
       request: request,
     );
-    final SearchModel uiModel = mapper.map(
+    final AlbumUIModel? uiModel = mapper.map(
       response: response,
     );
     return uiModel;

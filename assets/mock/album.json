@@ -1,83 +1,389 @@
 {
+  "album_type": "album",
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+      },
+      "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+      "id": "2xjp1njSsecnNhjgKZ35Ok",
+      "name": "Silly Fools",
+      "type": "artist",
+      "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+    }
+  ],
+  "copyrights": [
+    {
+      "text": "1998 GMM Music Company Limited",
+      "type": "C"
+    },
+    {
+      "text": "1998 GMM Music Company Limited",
+      "type": "P"
+    }
+  ],
+  "external_ids": {
+    "upc": "2284"
+  },
+  "external_urls": {
+    "spotify": "https://open.spotify.com/album/66x19pIPWHrVz7OkfRV5qQ"
+  },
+  "genres": [],
+  "href": "https://api.spotify.com/v1/albums/66x19pIPWHrVz7OkfRV5qQ",
+  "id": "66x19pIPWHrVz7OkfRV5qQ",
+  "images": [
+    {
+      "height": 640,
+      "url": "https://i.scdn.co/image/ab67616d0000b2738effc6d08d59216ab1439596",
+      "width": 640
+    },
+    {
+      "height": 300,
+      "url": "https://i.scdn.co/image/ab67616d00001e028effc6d08d59216ab1439596",
+      "width": 300
+    },
+    {
+      "height": 64,
+      "url": "https://i.scdn.co/image/ab67616d000048518effc6d08d59216ab1439596",
+      "width": 64
+    }
+  ],
+  "is_playable": true,
+  "label": "GMM Music Company Limited",
+  "name": "I.Q.180",
+  "popularity": 44,
+  "release_date": "1998-06-25",
+  "release_date_precision": "day",
+  "total_tracks": 11,
   "tracks": {
-    "href": "https://api.spotify.com/v1/me/shows?offset=0&limit=20",
-    "limit": 20,
-    "next": "https://api.spotify.com/v1/me/shows?offset=1&limit=1",
-    "offset": 0,
-    "previous": "https://api.spotify.com/v1/me/shows?offset=1&limit=1",
-    "total": 4,
+    "href": "https://api.spotify.com/v1/albums/66x19pIPWHrVz7OkfRV5qQ/tracks?offset=0&limit=50&market=TH",
     "items": [
       {
-        "album": {
-          "album_type": "compilation",
-          "total_tracks": 9,
-          "available_markets": [
-            "CA",
-            "BR",
-            "IT"
-          ],
-          "external_urls": {
-            "spotify": "string"
-          },
-          "href": "string",
-          "id": "2up3OPMp9Tb4dAKM2erWXQ",
-          "images": [
-            {
-              "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-              "height": 300,
-              "width": 300
-            }
-          ],
-          "name": "string",
-          "release_date": "1981-12",
-          "release_date_precision": "year",
-          "restrictions": {
-            "reason": "market"
-          },
-          "type": "album",
-          "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ",
-          "artists": [
-            {
-              "external_urls": {
-                "spotify": "string"
-              },
-              "href": "string",
-              "id": "string",
-              "name": "string",
-              "type": "artist",
-              "uri": "string"
-            }
-          ]
-        },
         "artists": [
           {
             "external_urls": {
-              "spotify": "string"
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
             },
-            "followers": {
-              "href": "string",
-              "total": 0
-            },
-            "genres": [
-              "Prog rock",
-              "Grunge"
-            ],
-            "href": "string",
-            "id": "string",
-            "images": [
-              {
-                "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-                "height": 300,
-                "width": 300
-              }
-            ],
-            "name": "string",
-            "popularity": 0,
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
             "type": "artist",
-            "uri": "string"
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
           }
-        ]
+        ],
+        "disc_number": 1,
+        "duration_ms": 227626,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/532rB3bbGAhDGtaEo8XSWc"
+        },
+        "href": "https://api.spotify.com/v1/tracks/532rB3bbGAhDGtaEo8XSWc",
+        "id": "532rB3bbGAhDGtaEo8XSWc",
+        "is_local": false,
+        "is_playable": true,
+        "name": "สู้ไม่ได้",
+        "preview_url": "https://p.scdn.co/mp3-preview/55a87f6137dfa67095e88913beed856d9ca11d47?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:532rB3bbGAhDGtaEo8XSWc"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 288626,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/36Bp1m6GZoFDznfUzyA7xv"
+        },
+        "href": "https://api.spotify.com/v1/tracks/36Bp1m6GZoFDznfUzyA7xv",
+        "id": "36Bp1m6GZoFDznfUzyA7xv",
+        "is_local": false,
+        "is_playable": true,
+        "name": "เมื่อรักฉันเกิด",
+        "preview_url": "https://p.scdn.co/mp3-preview/84bb4d9bf6b0c9b1d9ad4230f4123b69ce603e8b?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 2,
+        "type": "track",
+        "uri": "spotify:track:36Bp1m6GZoFDznfUzyA7xv"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 262680,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/0zQfEoxOqYwODWxZPYWtXt"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0zQfEoxOqYwODWxZPYWtXt",
+        "id": "0zQfEoxOqYwODWxZPYWtXt",
+        "is_local": false,
+        "is_playable": true,
+        "name": "สายไป",
+        "preview_url": "https://p.scdn.co/mp3-preview/55188e8a4e487bdb59e965ddf518776f8271b667?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 3,
+        "type": "track",
+        "uri": "spotify:track:0zQfEoxOqYwODWxZPYWtXt"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 222346,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/0I4SKNuWcPzh5iqfwpaHox"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0I4SKNuWcPzh5iqfwpaHox",
+        "id": "0I4SKNuWcPzh5iqfwpaHox",
+        "is_local": false,
+        "is_playable": true,
+        "name": "คิดไปทำไม",
+        "preview_url": "https://p.scdn.co/mp3-preview/f214ccb7e97c9910dc317252cc77d0646e6a5840?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 4,
+        "type": "track",
+        "uri": "spotify:track:0I4SKNuWcPzh5iqfwpaHox"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 225253,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/30zo5v6jFEJMkdxXEWGgqB"
+        },
+        "href": "https://api.spotify.com/v1/tracks/30zo5v6jFEJMkdxXEWGgqB",
+        "id": "30zo5v6jFEJMkdxXEWGgqB",
+        "is_local": false,
+        "is_playable": true,
+        "name": "เซ็ง",
+        "preview_url": "https://p.scdn.co/mp3-preview/d0039e963c0d9f6655d5f3ec672d85dc7ecffa37?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 5,
+        "type": "track",
+        "uri": "spotify:track:30zo5v6jFEJMkdxXEWGgqB"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 266426,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/2FXlT820Nq8Idogu4ySPWZ"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2FXlT820Nq8Idogu4ySPWZ",
+        "id": "2FXlT820Nq8Idogu4ySPWZ",
+        "is_local": false,
+        "is_playable": true,
+        "name": "เพ้อ",
+        "preview_url": "https://p.scdn.co/mp3-preview/601299a323247cfffe8a0e2eb7d60c29cb1ae792?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 6,
+        "type": "track",
+        "uri": "spotify:track:2FXlT820Nq8Idogu4ySPWZ"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 220800,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/2p69Kc0sFtRx1ymuJmtNy7"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2p69Kc0sFtRx1ymuJmtNy7",
+        "id": "2p69Kc0sFtRx1ymuJmtNy7",
+        "is_local": false,
+        "is_playable": true,
+        "name": "ต่างกัน",
+        "preview_url": "https://p.scdn.co/mp3-preview/85e1d7be296182d41dc058da6729669fc5fd6864?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 7,
+        "type": "track",
+        "uri": "spotify:track:2p69Kc0sFtRx1ymuJmtNy7"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 227706,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/4judRd4IQQreqhbcvsXBfg"
+        },
+        "href": "https://api.spotify.com/v1/tracks/4judRd4IQQreqhbcvsXBfg",
+        "id": "4judRd4IQQreqhbcvsXBfg",
+        "is_local": false,
+        "is_playable": true,
+        "name": "เวลา",
+        "preview_url": "https://p.scdn.co/mp3-preview/4dbdc78ce5b307d30da8764895a793bd0eab449d?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 8,
+        "type": "track",
+        "uri": "spotify:track:4judRd4IQQreqhbcvsXBfg"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 304013,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/3d5u4JeDKgWzCw2IQWsgWu"
+        },
+        "href": "https://api.spotify.com/v1/tracks/3d5u4JeDKgWzCw2IQWsgWu",
+        "id": "3d5u4JeDKgWzCw2IQWsgWu",
+        "is_local": false,
+        "is_playable": true,
+        "name": "หรือเปล่า?",
+        "preview_url": "https://p.scdn.co/mp3-preview/326e972de93a60d9c1709c39a4ac8d271ca30f9e?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 9,
+        "type": "track",
+        "uri": "spotify:track:3d5u4JeDKgWzCw2IQWsgWu"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 223426,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/2rTKkS5XErchQZiDklxsPS"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2rTKkS5XErchQZiDklxsPS",
+        "id": "2rTKkS5XErchQZiDklxsPS",
+        "is_local": false,
+        "is_playable": true,
+        "name": "พี่สาวครับอัดผมที",
+        "preview_url": "https://p.scdn.co/mp3-preview/d2018b46f02e25a4fca882619da7a584f5ed97c5?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 10,
+        "type": "track",
+        "uri": "spotify:track:2rTKkS5XErchQZiDklxsPS"
+      },
+      {
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"
+            },
+            "href": "https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok",
+            "id": "2xjp1njSsecnNhjgKZ35Ok",
+            "name": "Silly Fools",
+            "type": "artist",
+            "uri": "spotify:artist:2xjp1njSsecnNhjgKZ35Ok"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 264373,
+        "explicit": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/13Dejqp9kzJ31VAskUxaUO"
+        },
+        "href": "https://api.spotify.com/v1/tracks/13Dejqp9kzJ31VAskUxaUO",
+        "id": "13Dejqp9kzJ31VAskUxaUO",
+        "is_local": false,
+        "is_playable": true,
+        "name": "ให้เธอ",
+        "preview_url": "https://p.scdn.co/mp3-preview/8a8f17a8acb65128002ba6b4f816faf894ace471?cid=0ae4583f228b4571ba9e283b28bee353",
+        "track_number": 11,
+        "type": "track",
+        "uri": "spotify:track:13Dejqp9kzJ31VAskUxaUO"
       }
-    ]
-  }
+    ],
+    "limit": 50,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 11
+  },
+  "type": "album",
+  "uri": "spotify:album:66x19pIPWHrVz7OkfRV5qQ"
 }

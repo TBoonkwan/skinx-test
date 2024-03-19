@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skinx_test/features/album/config/album_route.dart';
 import 'package:skinx_test/features/search/domain/entity/search_ui_model.dart';
 import 'package:skinx_test/features/search/presentation/search_cubit.dart';
 import 'package:skinx_test/features/search/presentation/search_state.dart';
@@ -153,6 +154,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       final SearchUIModel item = state.search[index];
                       return ListTile(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            AlbumRoute.albumScreen,
+                            arguments: item.id,
+                          );
+                        },
                         leading: Image.network(item.image),
                         title: Text(
                           item.title,

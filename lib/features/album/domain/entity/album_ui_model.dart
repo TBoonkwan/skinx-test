@@ -1,17 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-class AlbumModel {
-  final num nextPage;
-  final num totalPage;
-  final AlbumUIModel uiModel;
-
-  AlbumModel({
-    required this.nextPage,
-    required this.totalPage,
-    required this.uiModel,
-  });
-}
-
 class AlbumUIModel extends Equatable {
   final String image;
   final String id;

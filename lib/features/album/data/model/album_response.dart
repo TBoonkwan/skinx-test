@@ -1,53 +1,212 @@
 import 'dart:convert';
 
-/// albums : {"href":"https://api.spotify.com/v1/search?query=Paradox&type=album&market=TH&offset=0&limit=20","items":[{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/0arxBfmEjM9dUu8fm9WC9n"},"href":"https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n","id":"0arxBfmEjM9dUu8fm9WC9n","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e026286cdb7819e1cb9c87ced70","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048516286cdb7819e1cb9c87ced70","width":64}],"is_playable":true,"name":"Summer","release_date":"2000-05-25","release_date_precision":"day","total_tracks":12,"type":"album","uri":"spotify:album:0arxBfmEjM9dUu8fm9WC9n"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/3waFXalZx4Ca0000kvuMkc"},"href":"https://api.spotify.com/v1/albums/3waFXalZx4Ca0000kvuMkc","id":"3waFXalZx4Ca0000kvuMkc","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2735fcf0aa6b762709da2a23de9","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e025fcf0aa6b762709da2a23de9","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048515fcf0aa6b762709da2a23de9","width":64}],"is_playable":true,"name":"Freestyle","release_date":"2003-09-23","release_date_precision":"day","total_tracks":13,"type":"album","uri":"spotify:album:3waFXalZx4Ca0000kvuMkc"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/75HcP7Zo7NAjJtvbOW5r1F"},"href":"https://api.spotify.com/v1/albums/75HcP7Zo7NAjJtvbOW5r1F","id":"75HcP7Zo7NAjJtvbOW5r1F","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2731610ede8107712fd71dfa1da","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e021610ede8107712fd71dfa1da","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048511610ede8107712fd71dfa1da","width":64}],"is_playable":true,"name":"PARADOX X (10 years after)","release_date":"2006-09-26","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:75HcP7Zo7NAjJtvbOW5r1F"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5OuhGwc5LfVeGDwzbDpH3l"},"href":"https://api.spotify.com/v1/albums/5OuhGwc5LfVeGDwzbDpH3l","id":"5OuhGwc5LfVeGDwzbDpH3l","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2738fb822c8aaf85314b8d610b3","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e028fb822c8aaf85314b8d610b3","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048518fb822c8aaf85314b8d610b3","width":64}],"is_playable":true,"name":"Daydreamer","release_date":"2011-12-16","release_date_precision":"day","total_tracks":17,"type":"album","uri":"spotify:album:5OuhGwc5LfVeGDwzbDpH3l"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5lNC7r0bLooDwla2FXtWuK"},"href":"https://api.spotify.com/v1/albums/5lNC7r0bLooDwla2FXtWuK","id":"5lNC7r0bLooDwla2FXtWuK","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2733d3e77ef72c3c3773cc75514","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e023d3e77ef72c3c3773cc75514","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048513d3e77ef72c3c3773cc75514","width":64}],"is_playable":true,"name":"BEFORE SUNRISE AFTER SUNSET","release_date":"2016-10-07","release_date_precision":"day","total_tracks":22,"type":"album","uri":"spotify:album:5lNC7r0bLooDwla2FXtWuK"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/7CYTViNhrd1uXR1AkgVPjr"},"href":"https://api.spotify.com/v1/albums/7CYTViNhrd1uXR1AkgVPjr","id":"7CYTViNhrd1uXR1AkgVPjr","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273e1617076732e7d790376447e","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02e1617076732e7d790376447e","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851e1617076732e7d790376447e","width":64}],"is_playable":true,"name":"Juicy","release_date":"2002-03-26","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:7CYTViNhrd1uXR1AkgVPjr"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5seliEvrZLXTCd5iYuEOTf"},"href":"https://api.spotify.com/v1/albums/5seliEvrZLXTCd5iYuEOTf","id":"5seliEvrZLXTCd5iYuEOTf","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2731332b2896e5ac29c25906b24","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e021332b2896e5ac29c25906b24","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048511332b2896e5ac29c25906b24","width":64}],"is_playable":true,"name":"เขียนไว้ข้างเตียง - Single","release_date":"2018-11-08","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:5seliEvrZLXTCd5iYuEOTf"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/1idlB8EI8IUmHql8jbvGX9"},"href":"https://api.spotify.com/v1/albums/1idlB8EI8IUmHql8jbvGX9","id":"1idlB8EI8IUmHql8jbvGX9","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734ff3b15909a659bf96b351f4","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024ff3b15909a659bf96b351f4","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514ff3b15909a659bf96b351f4","width":64}],"is_playable":true,"name":"Paradox in Paradise","release_date":"2007-02-23","release_date_precision":"day","total_tracks":13,"type":"album","uri":"spotify:album:1idlB8EI8IUmHql8jbvGX9"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/75VRvQYLgJ2yyRfw4a9oQc"},"href":"https://api.spotify.com/v1/albums/75VRvQYLgJ2yyRfw4a9oQc","id":"75VRvQYLgJ2yyRfw4a9oQc","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273e2c161143dfa4d878c03edc3","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02e2c161143dfa4d878c03edc3","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851e2c161143dfa4d878c03edc3","width":64}],"is_playable":true,"name":"ฤดูหนาว - Single","release_date":"2023-11-27","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:75VRvQYLgJ2yyRfw4a9oQc"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/5pxvW2nJ0a77b9oX24Unwi"},"href":"https://api.spotify.com/v1/artists/5pxvW2nJ0a77b9oX24Unwi","id":"5pxvW2nJ0a77b9oX24Unwi","name":"Tattoo Colour","type":"artist","uri":"spotify:artist:5pxvW2nJ0a77b9oX24Unwi"}],"external_urls":{"spotify":"https://open.spotify.com/album/7x31VHMG8eicd8iYQzx0L9"},"href":"https://api.spotify.com/v1/albums/7x31VHMG8eicd8iYQzx0L9","id":"7x31VHMG8eicd8iYQzx0L9","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273bd0446acb2c217a4915a9361","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02bd0446acb2c217a4915a9361","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851bd0446acb2c217a4915a9361","width":64}],"is_playable":true,"name":"ชุดที่ 8 จงเพราะ","release_date":"2008","release_date_precision":"year","total_tracks":10,"type":"album","uri":"spotify:album:7x31VHMG8eicd8iYQzx0L9"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/6aCe715WE3oSsBiI4zvV0s"},"href":"https://api.spotify.com/v1/albums/6aCe715WE3oSsBiI4zvV0s","id":"6aCe715WE3oSsBiI4zvV0s","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2732b8f8021a131a6e70fb837de","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e022b8f8021a131a6e70fb837de","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048512b8f8021a131a6e70fb837de","width":64}],"is_playable":true,"name":"Mint","release_date":"2000-09-28","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:6aCe715WE3oSsBiI4zvV0s"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/1pTiPuAABytFjsXsUwgsNE"},"href":"https://api.spotify.com/v1/artists/1pTiPuAABytFjsXsUwgsNE","id":"1pTiPuAABytFjsXsUwgsNE","name":"Pause","type":"artist","uri":"spotify:artist:1pTiPuAABytFjsXsUwgsNE"}],"external_urls":{"spotify":"https://open.spotify.com/album/5UEBDg1sx03ah3jfU5U8no"},"href":"https://api.spotify.com/v1/albums/5UEBDg1sx03ah3jfU5U8no","id":"5UEBDg1sx03ah3jfU5U8no","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b27314234decd7186d0f841f5108","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e0214234decd7186d0f841f5108","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d0000485114234decd7186d0f841f5108","width":64}],"is_playable":true,"name":"Mild","release_date":"1999","release_date_precision":"year","total_tracks":11,"type":"album","uri":"spotify:album:5UEBDg1sx03ah3jfU5U8no"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/0we53PBCJVDMmrmIQ34emB"},"href":"https://api.spotify.com/v1/albums/0we53PBCJVDMmrmIQ34emB","id":"0we53PBCJVDMmrmIQ34emB","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273ca794e18200a9229cafa4de5","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02ca794e18200a9229cafa4de5","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851ca794e18200a9229cafa4de5","width":64}],"is_playable":true,"name":"King Size","release_date":"2004-01-15","release_date_precision":"day","total_tracks":11,"type":"album","uri":"spotify:album:0we53PBCJVDMmrmIQ34emB"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/7zyObVag8rUjItn71SkIrh"},"href":"https://api.spotify.com/v1/artists/7zyObVag8rUjItn71SkIrh","id":"7zyObVag8rUjItn71SkIrh","name":"Survive Said The Prophet","type":"artist","uri":"spotify:artist:7zyObVag8rUjItn71SkIrh"}],"external_urls":{"spotify":"https://open.spotify.com/album/5CVLZcnzPNgpSUqJA71HYz"},"href":"https://api.spotify.com/v1/albums/5CVLZcnzPNgpSUqJA71HYz","id":"5CVLZcnzPNgpSUqJA71HYz","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734956f9fa9f46a21d551c7794","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024956f9fa9f46a21d551c7794","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514956f9fa9f46a21d551c7794","width":64}],"is_playable":true,"name":"Paradox","release_date":"2023-04-04","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:5CVLZcnzPNgpSUqJA71HYz"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/76VTagPgPgPlFE7hfjT0Zt"},"href":"https://api.spotify.com/v1/artists/76VTagPgPgPlFE7hfjT0Zt","id":"76VTagPgPgPlFE7hfjT0Zt","name":"Bodyslam","type":"artist","uri":"spotify:artist:76VTagPgPgPlFE7hfjT0Zt"}],"external_urls":{"spotify":"https://open.spotify.com/album/44V59QQ3ipFdJjqlIDVsSl"},"href":"https://api.spotify.com/v1/albums/44V59QQ3ipFdJjqlIDVsSl","id":"44V59QQ3ipFdJjqlIDVsSl","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273b8ff243ecbfa301a569c8b26","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02b8ff243ecbfa301a569c8b26","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851b8ff243ecbfa301a569c8b26","width":64}],"is_playable":true,"name":"Bodyslam","release_date":"2015","release_date_precision":"year","total_tracks":12,"type":"album","uri":"spotify:album:44V59QQ3ipFdJjqlIDVsSl"},{"album_type":"compilation","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/78IZNSfMsUEXcMjSIWpXcu"},"href":"https://api.spotify.com/v1/albums/78IZNSfMsUEXcMjSIWpXcu","id":"78IZNSfMsUEXcMjSIWpXcu","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734fb309027aa3f06deaba6a0c","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024fb309027aa3f06deaba6a0c","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514fb309027aa3f06deaba6a0c","width":64}],"is_playable":true,"name":"The Journey Of Paradox","release_date":"2012-12-07","release_date_precision":"day","total_tracks":29,"type":"album","uri":"spotify:album:78IZNSfMsUEXcMjSIWpXcu"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/05CRzFTp7TouOXPuH6Tapu"},"href":"https://api.spotify.com/v1/artists/05CRzFTp7TouOXPuH6Tapu","id":"05CRzFTp7TouOXPuH6Tapu","name":"Isyana Sarasvati","type":"artist","uri":"spotify:artist:05CRzFTp7TouOXPuH6Tapu"}],"external_urls":{"spotify":"https://open.spotify.com/album/4OTR3hEos8V9FqPZ754knV"},"href":"https://api.spotify.com/v1/albums/4OTR3hEos8V9FqPZ754knV","id":"4OTR3hEos8V9FqPZ754knV","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2733fa0a90f04f3a889b343c28c","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e023fa0a90f04f3a889b343c28c","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048513fa0a90f04f3a889b343c28c","width":64}],"is_playable":true,"name":"Paradox","release_date":"2017-09-01","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:4OTR3hEos8V9FqPZ754knV"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2YvlK6lKiKVjXxsjvNbnqg"},"href":"https://api.spotify.com/v1/artists/2YvlK6lKiKVjXxsjvNbnqg","id":"2YvlK6lKiKVjXxsjvNbnqg","name":"HOYO-MiX","type":"artist","uri":"spotify:artist:2YvlK6lKiKVjXxsjvNbnqg"}],"external_urls":{"spotify":"https://open.spotify.com/album/2hZd4VWskQkQFUdysbqaVL"},"href":"https://api.spotify.com/v1/albums/2hZd4VWskQkQFUdysbqaVL","id":"2hZd4VWskQkQFUdysbqaVL","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273700bf0ac47436ea16c2c8379","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02700bf0ac47436ea16c2c8379","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851700bf0ac47436ea16c2c8379","width":64}],"is_playable":true,"name":"Paradox (Honkai Impact 3rd Original Soundtrack)","release_date":"2022-02-02","release_date_precision":"day","total_tracks":40,"type":"album","uri":"spotify:album:2hZd4VWskQkQFUdysbqaVL"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2IUl3m1H1EQ7QfNbNWvgru"},"href":"https://api.spotify.com/v1/artists/2IUl3m1H1EQ7QfNbNWvgru","id":"2IUl3m1H1EQ7QfNbNWvgru","name":"Vaundy","type":"artist","uri":"spotify:artist:2IUl3m1H1EQ7QfNbNWvgru"}],"external_urls":{"spotify":"https://open.spotify.com/album/4cHdtiNVgGR80HprOsOdiK"},"href":"https://api.spotify.com/v1/albums/4cHdtiNVgGR80HprOsOdiK","id":"4cHdtiNVgGR80HprOsOdiK","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2735855cef3bb373a81316c2820","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e025855cef3bb373a81316c2820","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048515855cef3bb373a81316c2820","width":64}],"is_playable":true,"name":"タイムパラドックス","release_date":"2024-01-07","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:4cHdtiNVgGR80HprOsOdiK"},{"album_type":"compilation","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"},"href":"https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of","id":"0LyfQWJT6nXafLPZqxe9Of","name":"Various Artists","type":"artist","uri":"spotify:artist:0LyfQWJT6nXafLPZqxe9Of"}],"external_urls":{"spotify":"https://open.spotify.com/album/4W6oeLcRlI6LUDRUkxHwPs"},"href":"https://api.spotify.com/v1/albums/4W6oeLcRlI6LUDRUkxHwPs","id":"4W6oeLcRlI6LUDRUkxHwPs","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b27340357b881a1a5167c7cbe676","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e0240357b881a1a5167c7cbe676","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d0000485140357b881a1a5167c7cbe676","width":64}],"is_playable":true,"name":"Paradox Live Opening Show-Road to Legend-","release_date":"2022-03-30","release_date_precision":"day","total_tracks":15,"type":"album","uri":"spotify:album:4W6oeLcRlI6LUDRUkxHwPs"}],"limit":20,"next":"https://api.spotify.com/v1/search?query=Paradox&type=album&market=TH&offset=20&limit=20","offset":0,"previous":null,"total":1000}
+/// album_type : "album"
+/// artists : [{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}]
+/// copyrights : [{"text":"2000 GMM Music Company Limited","type":"C"},{"text":"2000 GMM Music Company Limited","type":"P"}]
+/// external_ids : {"upc":"693"}
+/// external_urls : {"spotify":"https://open.spotify.com/album/0arxBfmEjM9dUu8fm9WC9n"}
+/// genres : []
+/// href : "https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n"
+/// id : "0arxBfmEjM9dUu8fm9WC9n"
+/// images : [{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e026286cdb7819e1cb9c87ced70","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048516286cdb7819e1cb9c87ced70","width":64}]
+/// is_playable : true
+/// label : "GMM Music Company Limited"
+/// name : "Summer"
+/// popularity : 53
+/// release_date : "2000-05-25"
+/// release_date_precision : "day"
+/// total_tracks : 12
+/// tracks : {"href":"https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n/tracks?offset=0&limit=50&market=TH","items":[{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":238000,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0TZLgWfo5Q70PlDDiOlRZQ"},"href":"https://api.spotify.com/v1/tracks/0TZLgWfo5Q70PlDDiOlRZQ","id":"0TZLgWfo5Q70PlDDiOlRZQ","is_local":false,"is_playable":true,"name":"น้องเปิ้ล","preview_url":"https://p.scdn.co/mp3-preview/86ef43bd77c917ff8fed3c1b191fdd2e4c706958?cid=0ae4583f228b4571ba9e283b28bee353","track_number":1,"type":"track","uri":"spotify:track:0TZLgWfo5Q70PlDDiOlRZQ"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":197506,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/1oS3DiVag8BvZw9U9WV4Ge"},"href":"https://api.spotify.com/v1/tracks/1oS3DiVag8BvZw9U9WV4Ge","id":"1oS3DiVag8BvZw9U9WV4Ge","is_local":false,"is_playable":true,"name":"Love","preview_url":"https://p.scdn.co/mp3-preview/efcbfd726e0ab69abef848ec909fe2d83163c354?cid=0ae4583f228b4571ba9e283b28bee353","track_number":2,"type":"track","uri":"spotify:track:1oS3DiVag8BvZw9U9WV4Ge"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":196000,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/3Akpzt3DBkh2nrsVRMzEkG"},"href":"https://api.spotify.com/v1/tracks/3Akpzt3DBkh2nrsVRMzEkG","id":"3Akpzt3DBkh2nrsVRMzEkG","is_local":false,"is_playable":true,"name":"ภารตะฟิล์ม","preview_url":"https://p.scdn.co/mp3-preview/2fad1cea7d8af131fcbe7daa2a2efd4ca1727e28?cid=0ae4583f228b4571ba9e283b28bee353","track_number":3,"type":"track","uri":"spotify:track:3Akpzt3DBkh2nrsVRMzEkG"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":198160,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/2CcUALML2301vuTx0ONFNF"},"href":"https://api.spotify.com/v1/tracks/2CcUALML2301vuTx0ONFNF","id":"2CcUALML2301vuTx0ONFNF","is_local":false,"is_playable":true,"name":"มีแต่เธอ","preview_url":"https://p.scdn.co/mp3-preview/b4686ee8d5163aee7ecde27a35c17e513faa5244?cid=0ae4583f228b4571ba9e283b28bee353","track_number":4,"type":"track","uri":"spotify:track:2CcUALML2301vuTx0ONFNF"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":235173,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/50cwvYngX2bfeNHGlCOCZl"},"href":"https://api.spotify.com/v1/tracks/50cwvYngX2bfeNHGlCOCZl","id":"50cwvYngX2bfeNHGlCOCZl","is_local":false,"is_playable":true,"name":"ฤดูร้อน","preview_url":"https://p.scdn.co/mp3-preview/79ca11a5cd0c9084c79c3d441d8d9e58166f12db?cid=0ae4583f228b4571ba9e283b28bee353","track_number":5,"type":"track","uri":"spotify:track:50cwvYngX2bfeNHGlCOCZl"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":263280,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/5ZtjitHgoKhcHvpoFvdGXu"},"href":"https://api.spotify.com/v1/tracks/5ZtjitHgoKhcHvpoFvdGXu","id":"5ZtjitHgoKhcHvpoFvdGXu","is_local":false,"is_playable":true,"name":"ร.ด. แดนซ์","preview_url":"https://p.scdn.co/mp3-preview/034b736bbc07564aa003c9304afadd416c331114?cid=0ae4583f228b4571ba9e283b28bee353","track_number":6,"type":"track","uri":"spotify:track:5ZtjitHgoKhcHvpoFvdGXu"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":198800,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/2FAtOfRjKFifCahgUcleiE"},"href":"https://api.spotify.com/v1/tracks/2FAtOfRjKFifCahgUcleiE","id":"2FAtOfRjKFifCahgUcleiE","is_local":false,"is_playable":true,"name":"โดดน้ำตาย","preview_url":"https://p.scdn.co/mp3-preview/a6dbe1011842456b5a9ea52e290aba95438902e0?cid=0ae4583f228b4571ba9e283b28bee353","track_number":7,"type":"track","uri":"spotify:track:2FAtOfRjKFifCahgUcleiE"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":241093,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0asS70iTgqcDl0WweRoHww"},"href":"https://api.spotify.com/v1/tracks/0asS70iTgqcDl0WweRoHww","id":"0asS70iTgqcDl0WweRoHww","is_local":false,"is_playable":true,"name":"ท่ามกลาง","preview_url":"https://p.scdn.co/mp3-preview/911e5f03540a4fcceee0cd90f719c65673c2fa51?cid=0ae4583f228b4571ba9e283b28bee353","track_number":8,"type":"track","uri":"spotify:track:0asS70iTgqcDl0WweRoHww"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":208426,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/7s1OK1Uybir7rthPuWXdRx"},"href":"https://api.spotify.com/v1/tracks/7s1OK1Uybir7rthPuWXdRx","id":"7s1OK1Uybir7rthPuWXdRx","is_local":false,"is_playable":true,"name":"3 มิติ","preview_url":"https://p.scdn.co/mp3-preview/a56b7b9f960da569dcb6669c9c207d85277055d2?cid=0ae4583f228b4571ba9e283b28bee353","track_number":9,"type":"track","uri":"spotify:track:7s1OK1Uybir7rthPuWXdRx"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":205160,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/6osfO17fnVfZdGKv4OARdZ"},"href":"https://api.spotify.com/v1/tracks/6osfO17fnVfZdGKv4OARdZ","id":"6osfO17fnVfZdGKv4OARdZ","is_local":false,"is_playable":true,"name":"ไถล","preview_url":"https://p.scdn.co/mp3-preview/9203bffdb24a860304db75d797b98e7a267fc443?cid=0ae4583f228b4571ba9e283b28bee353","track_number":10,"type":"track","uri":"spotify:track:6osfO17fnVfZdGKv4OARdZ"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":206413,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/7rTguDSJJIlNzvujlGsv9y"},"href":"https://api.spotify.com/v1/tracks/7rTguDSJJIlNzvujlGsv9y","id":"7rTguDSJJIlNzvujlGsv9y","is_local":false,"is_playable":true,"name":"อยู่ในใจ","preview_url":"https://p.scdn.co/mp3-preview/3321154ccab57d6fc6d09a4d3d1cd53e8de423bb?cid=0ae4583f228b4571ba9e283b28bee353","track_number":11,"type":"track","uri":"spotify:track:7rTguDSJJIlNzvujlGsv9y"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":378706,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0LTajsUU6ukgD03HvBiX91"},"href":"https://api.spotify.com/v1/tracks/0LTajsUU6ukgD03HvBiX91","id":"0LTajsUU6ukgD03HvBiX91","is_local":false,"is_playable":true,"name":"ทัชมาฮาล","preview_url":"https://p.scdn.co/mp3-preview/3b9b2edcd35f6d41ca25e21c3fce7fa3e89efb4b?cid=0ae4583f228b4571ba9e283b28bee353","track_number":12,"type":"track","uri":"spotify:track:0LTajsUU6ukgD03HvBiX91"}],"limit":50,"next":null,"offset":0,"previous":null,"total":12}
+/// type : "album"
+/// uri : "spotify:album:0arxBfmEjM9dUu8fm9WC9n"
 
-SearchResponse searchResponseFromJson(String str) =>
-    SearchResponse.fromJson(json.decode(str));
+AlbumResponse albumResponseFromJson(String str) =>
+    AlbumResponse.fromJson(json.decode(str));
 
-String searchResponseToJson(SearchResponse data) => json.encode(data.toJson());
+String albumResponseToJson(AlbumResponse data) => json.encode(data.toJson());
 
-class SearchResponse {
-  SearchResponse({
-    this.albums,
+class AlbumResponse {
+  AlbumResponse({
+    this.albumType,
+    this.artists,
+    this.copyrights,
+    this.externalIds,
+    this.externalUrls,
+    this.genres,
+    this.href,
+    this.id,
+    this.images,
+    this.isPlayable,
+    this.label,
+    this.name,
+    this.popularity,
+    this.releaseDate,
+    this.releaseDatePrecision,
+    this.totalTracks,
+    this.tracks,
+    this.type,
+    this.uri,
   });
 
-  SearchResponse.fromJson(dynamic json) {
-    albums = json['albums'] != null ? Albums.fromJson(json['albums']) : null;
+  AlbumResponse.fromJson(dynamic json) {
+    albumType = json['album_type'];
+    if (json['artists'] != null) {
+      artists = [];
+      json['artists'].forEach((v) {
+        artists?.add(Artists.fromJson(v));
+      });
+    }
+    if (json['copyrights'] != null) {
+      copyrights = [];
+      json['copyrights'].forEach((v) {
+        copyrights?.add(Copyrights.fromJson(v));
+      });
+    }
+    externalIds = json['external_ids'] != null
+        ? ExternalIds.fromJson(json['external_ids'])
+        : null;
+    externalUrls = json['external_urls'] != null
+        ? ExternalUrls.fromJson(json['external_urls'])
+        : null;
+    if (json['genres'] != null) {
+      genres = [];
+      json['genres'].forEach((v) {
+        genres?.add(v as String);
+      });
+    }
+    href = json['href'];
+    id = json['id'];
+    if (json['images'] != null) {
+      images = [];
+      json['images'].forEach((v) {
+        images?.add(Images.fromJson(v));
+      });
+    }
+    isPlayable = json['is_playable'];
+    label = json['label'];
+    name = json['name'];
+    popularity = json['popularity'];
+    releaseDate = json['release_date'];
+    releaseDatePrecision = json['release_date_precision'];
+    totalTracks = json['total_tracks'];
+    tracks = json['tracks'] != null ? Tracks.fromJson(json['tracks']) : null;
+    type = json['type'];
+    uri = json['uri'];
   }
 
-  Albums? albums;
+  String? albumType;
+  List<Artists>? artists;
+  List<Copyrights>? copyrights;
+  ExternalIds? externalIds;
+  ExternalUrls? externalUrls;
+  List<String>? genres;
+  String? href;
+  String? id;
+  List<Images>? images;
+  bool? isPlayable;
+  String? label;
+  String? name;
+  num? popularity;
+  String? releaseDate;
+  String? releaseDatePrecision;
+  num? totalTracks;
+  Tracks? tracks;
+  String? type;
+  String? uri;
 
-  SearchResponse copyWith({
-    Albums? albums,
+  AlbumResponse copyWith({
+    String? albumType,
+    List<Artists>? artists,
+    List<Copyrights>? copyrights,
+    ExternalIds? externalIds,
+    ExternalUrls? externalUrls,
+    List<String>? genres,
+    String? href,
+    String? id,
+    List<Images>? images,
+    bool? isPlayable,
+    String? label,
+    String? name,
+    num? popularity,
+    String? releaseDate,
+    String? releaseDatePrecision,
+    num? totalTracks,
+    Tracks? tracks,
+    String? type,
+    String? uri,
   }) =>
-      SearchResponse(
-        albums: albums ?? this.albums,
+      AlbumResponse(
+        albumType: albumType ?? this.albumType,
+        artists: artists ?? this.artists,
+        copyrights: copyrights ?? this.copyrights,
+        externalIds: externalIds ?? this.externalIds,
+        externalUrls: externalUrls ?? this.externalUrls,
+        genres: genres ?? this.genres,
+        href: href ?? this.href,
+        id: id ?? this.id,
+        images: images ?? this.images,
+        isPlayable: isPlayable ?? this.isPlayable,
+        label: label ?? this.label,
+        name: name ?? this.name,
+        popularity: popularity ?? this.popularity,
+        releaseDate: releaseDate ?? this.releaseDate,
+        releaseDatePrecision: releaseDatePrecision ?? this.releaseDatePrecision,
+        totalTracks: totalTracks ?? this.totalTracks,
+        tracks: tracks ?? this.tracks,
+        type: type ?? this.type,
+        uri: uri ?? this.uri,
       );
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (albums != null) {
-      map['albums'] = albums?.toJson();
+    map['album_type'] = albumType;
+    if (artists != null) {
+      map['artists'] = artists?.map((v) => v.toJson()).toList();
     }
+    if (copyrights != null) {
+      map['copyrights'] = copyrights?.map((v) => v.toJson()).toList();
+    }
+    if (externalIds != null) {
+      map['external_ids'] = externalIds?.toJson();
+    }
+    if (externalUrls != null) {
+      map['external_urls'] = externalUrls?.toJson();
+    }
+    map['href'] = href;
+    map['id'] = id;
+    if (images != null) {
+      map['images'] = images?.map((v) => v.toJson()).toList();
+    }
+    map['is_playable'] = isPlayable;
+    map['label'] = label;
+    map['name'] = name;
+    map['popularity'] = popularity;
+    map['release_date'] = releaseDate;
+    map['release_date_precision'] = releaseDatePrecision;
+    map['total_tracks'] = totalTracks;
+    if (tracks != null) {
+      map['tracks'] = tracks?.toJson();
+    }
+    map['type'] = type;
+    map['uri'] = uri;
     return map;
   }
 }
 
-/// href : "https://api.spotify.com/v1/search?query=Paradox&type=album&market=TH&offset=0&limit=20"
-/// items : [{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/0arxBfmEjM9dUu8fm9WC9n"},"href":"https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n","id":"0arxBfmEjM9dUu8fm9WC9n","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e026286cdb7819e1cb9c87ced70","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048516286cdb7819e1cb9c87ced70","width":64}],"is_playable":true,"name":"Summer","release_date":"2000-05-25","release_date_precision":"day","total_tracks":12,"type":"album","uri":"spotify:album:0arxBfmEjM9dUu8fm9WC9n"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/3waFXalZx4Ca0000kvuMkc"},"href":"https://api.spotify.com/v1/albums/3waFXalZx4Ca0000kvuMkc","id":"3waFXalZx4Ca0000kvuMkc","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2735fcf0aa6b762709da2a23de9","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e025fcf0aa6b762709da2a23de9","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048515fcf0aa6b762709da2a23de9","width":64}],"is_playable":true,"name":"Freestyle","release_date":"2003-09-23","release_date_precision":"day","total_tracks":13,"type":"album","uri":"spotify:album:3waFXalZx4Ca0000kvuMkc"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/75HcP7Zo7NAjJtvbOW5r1F"},"href":"https://api.spotify.com/v1/albums/75HcP7Zo7NAjJtvbOW5r1F","id":"75HcP7Zo7NAjJtvbOW5r1F","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2731610ede8107712fd71dfa1da","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e021610ede8107712fd71dfa1da","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048511610ede8107712fd71dfa1da","width":64}],"is_playable":true,"name":"PARADOX X (10 years after)","release_date":"2006-09-26","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:75HcP7Zo7NAjJtvbOW5r1F"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5OuhGwc5LfVeGDwzbDpH3l"},"href":"https://api.spotify.com/v1/albums/5OuhGwc5LfVeGDwzbDpH3l","id":"5OuhGwc5LfVeGDwzbDpH3l","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2738fb822c8aaf85314b8d610b3","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e028fb822c8aaf85314b8d610b3","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048518fb822c8aaf85314b8d610b3","width":64}],"is_playable":true,"name":"Daydreamer","release_date":"2011-12-16","release_date_precision":"day","total_tracks":17,"type":"album","uri":"spotify:album:5OuhGwc5LfVeGDwzbDpH3l"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5lNC7r0bLooDwla2FXtWuK"},"href":"https://api.spotify.com/v1/albums/5lNC7r0bLooDwla2FXtWuK","id":"5lNC7r0bLooDwla2FXtWuK","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2733d3e77ef72c3c3773cc75514","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e023d3e77ef72c3c3773cc75514","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048513d3e77ef72c3c3773cc75514","width":64}],"is_playable":true,"name":"BEFORE SUNRISE AFTER SUNSET","release_date":"2016-10-07","release_date_precision":"day","total_tracks":22,"type":"album","uri":"spotify:album:5lNC7r0bLooDwla2FXtWuK"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/7CYTViNhrd1uXR1AkgVPjr"},"href":"https://api.spotify.com/v1/albums/7CYTViNhrd1uXR1AkgVPjr","id":"7CYTViNhrd1uXR1AkgVPjr","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273e1617076732e7d790376447e","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02e1617076732e7d790376447e","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851e1617076732e7d790376447e","width":64}],"is_playable":true,"name":"Juicy","release_date":"2002-03-26","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:7CYTViNhrd1uXR1AkgVPjr"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/5seliEvrZLXTCd5iYuEOTf"},"href":"https://api.spotify.com/v1/albums/5seliEvrZLXTCd5iYuEOTf","id":"5seliEvrZLXTCd5iYuEOTf","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2731332b2896e5ac29c25906b24","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e021332b2896e5ac29c25906b24","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048511332b2896e5ac29c25906b24","width":64}],"is_playable":true,"name":"เขียนไว้ข้างเตียง - Single","release_date":"2018-11-08","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:5seliEvrZLXTCd5iYuEOTf"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/1idlB8EI8IUmHql8jbvGX9"},"href":"https://api.spotify.com/v1/albums/1idlB8EI8IUmHql8jbvGX9","id":"1idlB8EI8IUmHql8jbvGX9","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734ff3b15909a659bf96b351f4","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024ff3b15909a659bf96b351f4","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514ff3b15909a659bf96b351f4","width":64}],"is_playable":true,"name":"Paradox in Paradise","release_date":"2007-02-23","release_date_precision":"day","total_tracks":13,"type":"album","uri":"spotify:album:1idlB8EI8IUmHql8jbvGX9"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/75VRvQYLgJ2yyRfw4a9oQc"},"href":"https://api.spotify.com/v1/albums/75VRvQYLgJ2yyRfw4a9oQc","id":"75VRvQYLgJ2yyRfw4a9oQc","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273e2c161143dfa4d878c03edc3","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02e2c161143dfa4d878c03edc3","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851e2c161143dfa4d878c03edc3","width":64}],"is_playable":true,"name":"ฤดูหนาว - Single","release_date":"2023-11-27","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:75VRvQYLgJ2yyRfw4a9oQc"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/5pxvW2nJ0a77b9oX24Unwi"},"href":"https://api.spotify.com/v1/artists/5pxvW2nJ0a77b9oX24Unwi","id":"5pxvW2nJ0a77b9oX24Unwi","name":"Tattoo Colour","type":"artist","uri":"spotify:artist:5pxvW2nJ0a77b9oX24Unwi"}],"external_urls":{"spotify":"https://open.spotify.com/album/7x31VHMG8eicd8iYQzx0L9"},"href":"https://api.spotify.com/v1/albums/7x31VHMG8eicd8iYQzx0L9","id":"7x31VHMG8eicd8iYQzx0L9","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273bd0446acb2c217a4915a9361","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02bd0446acb2c217a4915a9361","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851bd0446acb2c217a4915a9361","width":64}],"is_playable":true,"name":"ชุดที่ 8 จงเพราะ","release_date":"2008","release_date_precision":"year","total_tracks":10,"type":"album","uri":"spotify:album:7x31VHMG8eicd8iYQzx0L9"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/6aCe715WE3oSsBiI4zvV0s"},"href":"https://api.spotify.com/v1/albums/6aCe715WE3oSsBiI4zvV0s","id":"6aCe715WE3oSsBiI4zvV0s","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2732b8f8021a131a6e70fb837de","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e022b8f8021a131a6e70fb837de","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048512b8f8021a131a6e70fb837de","width":64}],"is_playable":true,"name":"Mint","release_date":"2000-09-28","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:6aCe715WE3oSsBiI4zvV0s"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/1pTiPuAABytFjsXsUwgsNE"},"href":"https://api.spotify.com/v1/artists/1pTiPuAABytFjsXsUwgsNE","id":"1pTiPuAABytFjsXsUwgsNE","name":"Pause","type":"artist","uri":"spotify:artist:1pTiPuAABytFjsXsUwgsNE"}],"external_urls":{"spotify":"https://open.spotify.com/album/5UEBDg1sx03ah3jfU5U8no"},"href":"https://api.spotify.com/v1/albums/5UEBDg1sx03ah3jfU5U8no","id":"5UEBDg1sx03ah3jfU5U8no","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b27314234decd7186d0f841f5108","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e0214234decd7186d0f841f5108","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d0000485114234decd7186d0f841f5108","width":64}],"is_playable":true,"name":"Mild","release_date":"1999","release_date_precision":"year","total_tracks":11,"type":"album","uri":"spotify:album:5UEBDg1sx03ah3jfU5U8no"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2xjp1njSsecnNhjgKZ35Ok"},"href":"https://api.spotify.com/v1/artists/2xjp1njSsecnNhjgKZ35Ok","id":"2xjp1njSsecnNhjgKZ35Ok","name":"Silly Fools","type":"artist","uri":"spotify:artist:2xjp1njSsecnNhjgKZ35Ok"}],"external_urls":{"spotify":"https://open.spotify.com/album/0we53PBCJVDMmrmIQ34emB"},"href":"https://api.spotify.com/v1/albums/0we53PBCJVDMmrmIQ34emB","id":"0we53PBCJVDMmrmIQ34emB","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273ca794e18200a9229cafa4de5","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02ca794e18200a9229cafa4de5","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851ca794e18200a9229cafa4de5","width":64}],"is_playable":true,"name":"King Size","release_date":"2004-01-15","release_date_precision":"day","total_tracks":11,"type":"album","uri":"spotify:album:0we53PBCJVDMmrmIQ34emB"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/7zyObVag8rUjItn71SkIrh"},"href":"https://api.spotify.com/v1/artists/7zyObVag8rUjItn71SkIrh","id":"7zyObVag8rUjItn71SkIrh","name":"Survive Said The Prophet","type":"artist","uri":"spotify:artist:7zyObVag8rUjItn71SkIrh"}],"external_urls":{"spotify":"https://open.spotify.com/album/5CVLZcnzPNgpSUqJA71HYz"},"href":"https://api.spotify.com/v1/albums/5CVLZcnzPNgpSUqJA71HYz","id":"5CVLZcnzPNgpSUqJA71HYz","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734956f9fa9f46a21d551c7794","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024956f9fa9f46a21d551c7794","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514956f9fa9f46a21d551c7794","width":64}],"is_playable":true,"name":"Paradox","release_date":"2023-04-04","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:5CVLZcnzPNgpSUqJA71HYz"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/76VTagPgPgPlFE7hfjT0Zt"},"href":"https://api.spotify.com/v1/artists/76VTagPgPgPlFE7hfjT0Zt","id":"76VTagPgPgPlFE7hfjT0Zt","name":"Bodyslam","type":"artist","uri":"spotify:artist:76VTagPgPgPlFE7hfjT0Zt"}],"external_urls":{"spotify":"https://open.spotify.com/album/44V59QQ3ipFdJjqlIDVsSl"},"href":"https://api.spotify.com/v1/albums/44V59QQ3ipFdJjqlIDVsSl","id":"44V59QQ3ipFdJjqlIDVsSl","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273b8ff243ecbfa301a569c8b26","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02b8ff243ecbfa301a569c8b26","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851b8ff243ecbfa301a569c8b26","width":64}],"is_playable":true,"name":"Bodyslam","release_date":"2015","release_date_precision":"year","total_tracks":12,"type":"album","uri":"spotify:album:44V59QQ3ipFdJjqlIDVsSl"},{"album_type":"compilation","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"external_urls":{"spotify":"https://open.spotify.com/album/78IZNSfMsUEXcMjSIWpXcu"},"href":"https://api.spotify.com/v1/albums/78IZNSfMsUEXcMjSIWpXcu","id":"78IZNSfMsUEXcMjSIWpXcu","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2734fb309027aa3f06deaba6a0c","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e024fb309027aa3f06deaba6a0c","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048514fb309027aa3f06deaba6a0c","width":64}],"is_playable":true,"name":"The Journey Of Paradox","release_date":"2012-12-07","release_date_precision":"day","total_tracks":29,"type":"album","uri":"spotify:album:78IZNSfMsUEXcMjSIWpXcu"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/05CRzFTp7TouOXPuH6Tapu"},"href":"https://api.spotify.com/v1/artists/05CRzFTp7TouOXPuH6Tapu","id":"05CRzFTp7TouOXPuH6Tapu","name":"Isyana Sarasvati","type":"artist","uri":"spotify:artist:05CRzFTp7TouOXPuH6Tapu"}],"external_urls":{"spotify":"https://open.spotify.com/album/4OTR3hEos8V9FqPZ754knV"},"href":"https://api.spotify.com/v1/albums/4OTR3hEos8V9FqPZ754knV","id":"4OTR3hEos8V9FqPZ754knV","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2733fa0a90f04f3a889b343c28c","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e023fa0a90f04f3a889b343c28c","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048513fa0a90f04f3a889b343c28c","width":64}],"is_playable":true,"name":"Paradox","release_date":"2017-09-01","release_date_precision":"day","total_tracks":10,"type":"album","uri":"spotify:album:4OTR3hEos8V9FqPZ754knV"},{"album_type":"album","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2YvlK6lKiKVjXxsjvNbnqg"},"href":"https://api.spotify.com/v1/artists/2YvlK6lKiKVjXxsjvNbnqg","id":"2YvlK6lKiKVjXxsjvNbnqg","name":"HOYO-MiX","type":"artist","uri":"spotify:artist:2YvlK6lKiKVjXxsjvNbnqg"}],"external_urls":{"spotify":"https://open.spotify.com/album/2hZd4VWskQkQFUdysbqaVL"},"href":"https://api.spotify.com/v1/albums/2hZd4VWskQkQFUdysbqaVL","id":"2hZd4VWskQkQFUdysbqaVL","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b273700bf0ac47436ea16c2c8379","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e02700bf0ac47436ea16c2c8379","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d00004851700bf0ac47436ea16c2c8379","width":64}],"is_playable":true,"name":"Paradox (Honkai Impact 3rd Original Soundtrack)","release_date":"2022-02-02","release_date_precision":"day","total_tracks":40,"type":"album","uri":"spotify:album:2hZd4VWskQkQFUdysbqaVL"},{"album_type":"single","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/2IUl3m1H1EQ7QfNbNWvgru"},"href":"https://api.spotify.com/v1/artists/2IUl3m1H1EQ7QfNbNWvgru","id":"2IUl3m1H1EQ7QfNbNWvgru","name":"Vaundy","type":"artist","uri":"spotify:artist:2IUl3m1H1EQ7QfNbNWvgru"}],"external_urls":{"spotify":"https://open.spotify.com/album/4cHdtiNVgGR80HprOsOdiK"},"href":"https://api.spotify.com/v1/albums/4cHdtiNVgGR80HprOsOdiK","id":"4cHdtiNVgGR80HprOsOdiK","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2735855cef3bb373a81316c2820","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e025855cef3bb373a81316c2820","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048515855cef3bb373a81316c2820","width":64}],"is_playable":true,"name":"タイムパラドックス","release_date":"2024-01-07","release_date_precision":"day","total_tracks":1,"type":"album","uri":"spotify:album:4cHdtiNVgGR80HprOsOdiK"},{"album_type":"compilation","artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"},"href":"https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of","id":"0LyfQWJT6nXafLPZqxe9Of","name":"Various Artists","type":"artist","uri":"spotify:artist:0LyfQWJT6nXafLPZqxe9Of"}],"external_urls":{"spotify":"https://open.spotify.com/album/4W6oeLcRlI6LUDRUkxHwPs"},"href":"https://api.spotify.com/v1/albums/4W6oeLcRlI6LUDRUkxHwPs","id":"4W6oeLcRlI6LUDRUkxHwPs","images":[{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b27340357b881a1a5167c7cbe676","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e0240357b881a1a5167c7cbe676","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d0000485140357b881a1a5167c7cbe676","width":64}],"is_playable":true,"name":"Paradox Live Opening Show-Road to Legend-","release_date":"2022-03-30","release_date_precision":"day","total_tracks":15,"type":"album","uri":"spotify:album:4W6oeLcRlI6LUDRUkxHwPs"}]
-/// limit : 20
-/// next : "https://api.spotify.com/v1/search?query=Paradox&type=album&market=TH&offset=20&limit=20"
+/// href : "https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n/tracks?offset=0&limit=50&market=TH"
+/// items : [{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":238000,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0TZLgWfo5Q70PlDDiOlRZQ"},"href":"https://api.spotify.com/v1/tracks/0TZLgWfo5Q70PlDDiOlRZQ","id":"0TZLgWfo5Q70PlDDiOlRZQ","is_local":false,"is_playable":true,"name":"น้องเปิ้ล","preview_url":"https://p.scdn.co/mp3-preview/86ef43bd77c917ff8fed3c1b191fdd2e4c706958?cid=0ae4583f228b4571ba9e283b28bee353","track_number":1,"type":"track","uri":"spotify:track:0TZLgWfo5Q70PlDDiOlRZQ"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":197506,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/1oS3DiVag8BvZw9U9WV4Ge"},"href":"https://api.spotify.com/v1/tracks/1oS3DiVag8BvZw9U9WV4Ge","id":"1oS3DiVag8BvZw9U9WV4Ge","is_local":false,"is_playable":true,"name":"Love","preview_url":"https://p.scdn.co/mp3-preview/efcbfd726e0ab69abef848ec909fe2d83163c354?cid=0ae4583f228b4571ba9e283b28bee353","track_number":2,"type":"track","uri":"spotify:track:1oS3DiVag8BvZw9U9WV4Ge"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":196000,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/3Akpzt3DBkh2nrsVRMzEkG"},"href":"https://api.spotify.com/v1/tracks/3Akpzt3DBkh2nrsVRMzEkG","id":"3Akpzt3DBkh2nrsVRMzEkG","is_local":false,"is_playable":true,"name":"ภารตะฟิล์ม","preview_url":"https://p.scdn.co/mp3-preview/2fad1cea7d8af131fcbe7daa2a2efd4ca1727e28?cid=0ae4583f228b4571ba9e283b28bee353","track_number":3,"type":"track","uri":"spotify:track:3Akpzt3DBkh2nrsVRMzEkG"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":198160,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/2CcUALML2301vuTx0ONFNF"},"href":"https://api.spotify.com/v1/tracks/2CcUALML2301vuTx0ONFNF","id":"2CcUALML2301vuTx0ONFNF","is_local":false,"is_playable":true,"name":"มีแต่เธอ","preview_url":"https://p.scdn.co/mp3-preview/b4686ee8d5163aee7ecde27a35c17e513faa5244?cid=0ae4583f228b4571ba9e283b28bee353","track_number":4,"type":"track","uri":"spotify:track:2CcUALML2301vuTx0ONFNF"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":235173,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/50cwvYngX2bfeNHGlCOCZl"},"href":"https://api.spotify.com/v1/tracks/50cwvYngX2bfeNHGlCOCZl","id":"50cwvYngX2bfeNHGlCOCZl","is_local":false,"is_playable":true,"name":"ฤดูร้อน","preview_url":"https://p.scdn.co/mp3-preview/79ca11a5cd0c9084c79c3d441d8d9e58166f12db?cid=0ae4583f228b4571ba9e283b28bee353","track_number":5,"type":"track","uri":"spotify:track:50cwvYngX2bfeNHGlCOCZl"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":263280,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/5ZtjitHgoKhcHvpoFvdGXu"},"href":"https://api.spotify.com/v1/tracks/5ZtjitHgoKhcHvpoFvdGXu","id":"5ZtjitHgoKhcHvpoFvdGXu","is_local":false,"is_playable":true,"name":"ร.ด. แดนซ์","preview_url":"https://p.scdn.co/mp3-preview/034b736bbc07564aa003c9304afadd416c331114?cid=0ae4583f228b4571ba9e283b28bee353","track_number":6,"type":"track","uri":"spotify:track:5ZtjitHgoKhcHvpoFvdGXu"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":198800,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/2FAtOfRjKFifCahgUcleiE"},"href":"https://api.spotify.com/v1/tracks/2FAtOfRjKFifCahgUcleiE","id":"2FAtOfRjKFifCahgUcleiE","is_local":false,"is_playable":true,"name":"โดดน้ำตาย","preview_url":"https://p.scdn.co/mp3-preview/a6dbe1011842456b5a9ea52e290aba95438902e0?cid=0ae4583f228b4571ba9e283b28bee353","track_number":7,"type":"track","uri":"spotify:track:2FAtOfRjKFifCahgUcleiE"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":241093,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0asS70iTgqcDl0WweRoHww"},"href":"https://api.spotify.com/v1/tracks/0asS70iTgqcDl0WweRoHww","id":"0asS70iTgqcDl0WweRoHww","is_local":false,"is_playable":true,"name":"ท่ามกลาง","preview_url":"https://p.scdn.co/mp3-preview/911e5f03540a4fcceee0cd90f719c65673c2fa51?cid=0ae4583f228b4571ba9e283b28bee353","track_number":8,"type":"track","uri":"spotify:track:0asS70iTgqcDl0WweRoHww"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":208426,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/7s1OK1Uybir7rthPuWXdRx"},"href":"https://api.spotify.com/v1/tracks/7s1OK1Uybir7rthPuWXdRx","id":"7s1OK1Uybir7rthPuWXdRx","is_local":false,"is_playable":true,"name":"3 มิติ","preview_url":"https://p.scdn.co/mp3-preview/a56b7b9f960da569dcb6669c9c207d85277055d2?cid=0ae4583f228b4571ba9e283b28bee353","track_number":9,"type":"track","uri":"spotify:track:7s1OK1Uybir7rthPuWXdRx"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":205160,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/6osfO17fnVfZdGKv4OARdZ"},"href":"https://api.spotify.com/v1/tracks/6osfO17fnVfZdGKv4OARdZ","id":"6osfO17fnVfZdGKv4OARdZ","is_local":false,"is_playable":true,"name":"ไถล","preview_url":"https://p.scdn.co/mp3-preview/9203bffdb24a860304db75d797b98e7a267fc443?cid=0ae4583f228b4571ba9e283b28bee353","track_number":10,"type":"track","uri":"spotify:track:6osfO17fnVfZdGKv4OARdZ"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":206413,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/7rTguDSJJIlNzvujlGsv9y"},"href":"https://api.spotify.com/v1/tracks/7rTguDSJJIlNzvujlGsv9y","id":"7rTguDSJJIlNzvujlGsv9y","is_local":false,"is_playable":true,"name":"อยู่ในใจ","preview_url":"https://p.scdn.co/mp3-preview/3321154ccab57d6fc6d09a4d3d1cd53e8de423bb?cid=0ae4583f228b4571ba9e283b28bee353","track_number":11,"type":"track","uri":"spotify:track:7rTguDSJJIlNzvujlGsv9y"},{"artists":[{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}],"disc_number":1,"duration_ms":378706,"explicit":false,"external_urls":{"spotify":"https://open.spotify.com/track/0LTajsUU6ukgD03HvBiX91"},"href":"https://api.spotify.com/v1/tracks/0LTajsUU6ukgD03HvBiX91","id":"0LTajsUU6ukgD03HvBiX91","is_local":false,"is_playable":true,"name":"ทัชมาฮาล","preview_url":"https://p.scdn.co/mp3-preview/3b9b2edcd35f6d41ca25e21c3fce7fa3e89efb4b?cid=0ae4583f228b4571ba9e283b28bee353","track_number":12,"type":"track","uri":"spotify:track:0LTajsUU6ukgD03HvBiX91"}]
+/// limit : 50
+/// next : null
 /// offset : 0
 /// previous : null
-/// total : 1000
+/// total : 12
 
-Albums albumsFromJson(String str) => Albums.fromJson(json.decode(str));
+Tracks tracksFromJson(String str) => Tracks.fromJson(json.decode(str));
 
-String albumsToJson(Albums data) => json.encode(data.toJson());
+String tracksToJson(Tracks data) => json.encode(data.toJson());
 
-class Albums {
-  Albums({
+class Tracks {
+  Tracks({
     this.href,
     this.items,
     this.limit,
@@ -57,7 +216,7 @@ class Albums {
     this.total,
   });
 
-  Albums.fromJson(dynamic json) {
+  Tracks.fromJson(dynamic json) {
     href = json['href'];
     if (json['items'] != null) {
       items = [];
@@ -75,21 +234,21 @@ class Albums {
   String? href;
   List<Items>? items;
   num? limit;
-  String? next;
+  dynamic next;
   num? offset;
   dynamic previous;
   num? total;
 
-  Albums copyWith({
+  Tracks copyWith({
     String? href,
     List<Items>? items,
     num? limit,
-    String? next,
+    dynamic next,
     num? offset,
     dynamic previous,
     num? total,
   }) =>
-      Albums(
+      Tracks(
         href: href ?? this.href,
         items: items ?? this.items,
         limit: limit ?? this.limit,
@@ -114,19 +273,20 @@ class Albums {
   }
 }
 
-/// album_type : "album"
 /// artists : [{"external_urls":{"spotify":"https://open.spotify.com/artist/32bq0Oy4ygWPR5ItUM5J5M"},"href":"https://api.spotify.com/v1/artists/32bq0Oy4ygWPR5ItUM5J5M","id":"32bq0Oy4ygWPR5ItUM5J5M","name":"Paradox","type":"artist","uri":"spotify:artist:32bq0Oy4ygWPR5ItUM5J5M"}]
-/// external_urls : {"spotify":"https://open.spotify.com/album/0arxBfmEjM9dUu8fm9WC9n"}
-/// href : "https://api.spotify.com/v1/albums/0arxBfmEjM9dUu8fm9WC9n"
-/// id : "0arxBfmEjM9dUu8fm9WC9n"
-/// images : [{"height":640,"url":"https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70","width":640},{"height":300,"url":"https://i.scdn.co/image/ab67616d00001e026286cdb7819e1cb9c87ced70","width":300},{"height":64,"url":"https://i.scdn.co/image/ab67616d000048516286cdb7819e1cb9c87ced70","width":64}]
+/// disc_number : 1
+/// duration_ms : 238000
+/// explicit : false
+/// external_urls : {"spotify":"https://open.spotify.com/track/0TZLgWfo5Q70PlDDiOlRZQ"}
+/// href : "https://api.spotify.com/v1/tracks/0TZLgWfo5Q70PlDDiOlRZQ"
+/// id : "0TZLgWfo5Q70PlDDiOlRZQ"
+/// is_local : false
 /// is_playable : true
-/// name : "Summer"
-/// release_date : "2000-05-25"
-/// release_date_precision : "day"
-/// total_tracks : 12
-/// type : "album"
-/// uri : "spotify:album:0arxBfmEjM9dUu8fm9WC9n"
+/// name : "น้องเปิ้ล"
+/// preview_url : "https://p.scdn.co/mp3-preview/86ef43bd77c917ff8fed3c1b191fdd2e4c706958?cid=0ae4583f228b4571ba9e283b28bee353"
+/// track_number : 1
+/// type : "track"
+/// uri : "spotify:track:0TZLgWfo5Q70PlDDiOlRZQ"
 
 Items itemsFromJson(String str) => Items.fromJson(json.decode(str));
 
@@ -134,165 +294,119 @@ String itemsToJson(Items data) => json.encode(data.toJson());
 
 class Items {
   Items({
-    this.albumType,
     this.artists,
+    this.discNumber,
+    this.durationMs,
+    this.explicit,
     this.externalUrls,
     this.href,
     this.id,
-    this.images,
+    this.isLocal,
     this.isPlayable,
     this.name,
-    this.releaseDate,
-    this.releaseDatePrecision,
-    this.totalTracks,
+    this.previewUrl,
+    this.trackNumber,
     this.type,
     this.uri,
   });
 
   Items.fromJson(dynamic json) {
-    albumType = json['album_type'];
     if (json['artists'] != null) {
       artists = [];
       json['artists'].forEach((v) {
         artists?.add(Artists.fromJson(v));
       });
     }
+    discNumber = json['disc_number'];
+    durationMs = json['duration_ms'];
+    explicit = json['explicit'];
     externalUrls = json['external_urls'] != null
         ? ExternalUrls.fromJson(json['external_urls'])
         : null;
     href = json['href'];
     id = json['id'];
-    if (json['images'] != null) {
-      images = [];
-      json['images'].forEach((v) {
-        images?.add(Images.fromJson(v));
-      });
-    }
+    isLocal = json['is_local'];
     isPlayable = json['is_playable'];
     name = json['name'];
-    releaseDate = json['release_date'];
-    releaseDatePrecision = json['release_date_precision'];
-    totalTracks = json['total_tracks'];
+    previewUrl = json['preview_url'];
+    trackNumber = json['track_number'];
     type = json['type'];
     uri = json['uri'];
   }
 
-  String? albumType;
   List<Artists>? artists;
+  num? discNumber;
+  num? durationMs;
+  bool? explicit;
   ExternalUrls? externalUrls;
   String? href;
   String? id;
-  List<Images>? images;
+  bool? isLocal;
   bool? isPlayable;
   String? name;
-  String? releaseDate;
-  String? releaseDatePrecision;
-  num? totalTracks;
+  String? previewUrl;
+  num? trackNumber;
   String? type;
   String? uri;
 
   Items copyWith({
-    String? albumType,
     List<Artists>? artists,
+    num? discNumber,
+    num? durationMs,
+    bool? explicit,
     ExternalUrls? externalUrls,
     String? href,
     String? id,
-    List<Images>? images,
+    bool? isLocal,
     bool? isPlayable,
     String? name,
-    String? releaseDate,
-    String? releaseDatePrecision,
-    num? totalTracks,
+    String? previewUrl,
+    num? trackNumber,
     String? type,
     String? uri,
   }) =>
       Items(
-        albumType: albumType ?? this.albumType,
         artists: artists ?? this.artists,
+        discNumber: discNumber ?? this.discNumber,
+        durationMs: durationMs ?? this.durationMs,
+        explicit: explicit ?? this.explicit,
         externalUrls: externalUrls ?? this.externalUrls,
         href: href ?? this.href,
         id: id ?? this.id,
-        images: images ?? this.images,
+        isLocal: isLocal ?? this.isLocal,
         isPlayable: isPlayable ?? this.isPlayable,
         name: name ?? this.name,
-        releaseDate: releaseDate ?? this.releaseDate,
-        releaseDatePrecision: releaseDatePrecision ?? this.releaseDatePrecision,
-        totalTracks: totalTracks ?? this.totalTracks,
+        previewUrl: previewUrl ?? this.previewUrl,
+        trackNumber: trackNumber ?? this.trackNumber,
         type: type ?? this.type,
         uri: uri ?? this.uri,
       );
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['album_type'] = albumType;
     if (artists != null) {
       map['artists'] = artists?.map((v) => v.toJson()).toList();
     }
+    map['disc_number'] = discNumber;
+    map['duration_ms'] = durationMs;
+    map['explicit'] = explicit;
     if (externalUrls != null) {
       map['external_urls'] = externalUrls?.toJson();
     }
     map['href'] = href;
     map['id'] = id;
-    if (images != null) {
-      map['images'] = images?.map((v) => v.toJson()).toList();
-    }
+    map['is_local'] = isLocal;
     map['is_playable'] = isPlayable;
     map['name'] = name;
-    map['release_date'] = releaseDate;
-    map['release_date_precision'] = releaseDatePrecision;
-    map['total_tracks'] = totalTracks;
+    map['preview_url'] = previewUrl;
+    map['track_number'] = trackNumber;
     map['type'] = type;
     map['uri'] = uri;
     return map;
   }
 }
 
-/// height : 640
-/// url : "https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70"
-/// width : 640
-
-Images imagesFromJson(String str) => Images.fromJson(json.decode(str));
-
-String imagesToJson(Images data) => json.encode(data.toJson());
-
-class Images {
-  Images({
-    this.height,
-    this.url,
-    this.width,
-  });
-
-  Images.fromJson(dynamic json) {
-    height = json['height'];
-    url = json['url'];
-    width = json['width'];
-  }
-
-  num? height;
-  String? url;
-  num? width;
-
-  Images copyWith({
-    num? height,
-    String? url,
-    num? width,
-  }) =>
-      Images(
-        height: height ?? this.height,
-        url: url ?? this.url,
-        width: width ?? this.width,
-      );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['height'] = height;
-    map['url'] = url;
-    map['width'] = width;
-    return map;
-  }
-}
-
-/// spotify : "https://open.spotify.com/album/0arxBfmEjM9dUu8fm9WC9n"
+/// spotify : "https://open.spotify.com/track/0TZLgWfo5Q70PlDDiOlRZQ"
 
 ExternalUrls externalUrlsFromJson(String str) =>
     ExternalUrls.fromJson(json.decode(str));
@@ -390,6 +504,122 @@ class Artists {
     map['name'] = name;
     map['type'] = type;
     map['uri'] = uri;
+    return map;
+  }
+}
+
+/// height : 640
+/// url : "https://i.scdn.co/image/ab67616d0000b2736286cdb7819e1cb9c87ced70"
+/// width : 640
+
+Images imagesFromJson(String str) => Images.fromJson(json.decode(str));
+
+String imagesToJson(Images data) => json.encode(data.toJson());
+
+class Images {
+  Images({
+    this.height,
+    this.url,
+    this.width,
+  });
+
+  Images.fromJson(dynamic json) {
+    height = json['height'];
+    url = json['url'];
+    width = json['width'];
+  }
+
+  num? height;
+  String? url;
+  num? width;
+
+  Images copyWith({
+    num? height,
+    String? url,
+    num? width,
+  }) =>
+      Images(
+        height: height ?? this.height,
+        url: url ?? this.url,
+        width: width ?? this.width,
+      );
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['height'] = height;
+    map['url'] = url;
+    map['width'] = width;
+    return map;
+  }
+}
+
+/// upc : "693"
+
+ExternalIds externalIdsFromJson(String str) =>
+    ExternalIds.fromJson(json.decode(str));
+
+String externalIdsToJson(ExternalIds data) => json.encode(data.toJson());
+
+class ExternalIds {
+  ExternalIds({
+    this.upc,
+  });
+
+  ExternalIds.fromJson(dynamic json) {
+    upc = json['upc'];
+  }
+
+  String? upc;
+
+  ExternalIds copyWith({
+    String? upc,
+  }) =>
+      ExternalIds(
+        upc: upc ?? this.upc,
+      );
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['upc'] = upc;
+    return map;
+  }
+}
+
+/// text : "2000 GMM Music Company Limited"
+/// type : "C"
+
+Copyrights copyrightsFromJson(String str) =>
+    Copyrights.fromJson(json.decode(str));
+
+String copyrightsToJson(Copyrights data) => json.encode(data.toJson());
+
+class Copyrights {
+  Copyrights({
+    this.text,
+    this.type,
+  });
+
+  Copyrights.fromJson(dynamic json) {
+    text = json['text'];
+    type = json['type'];
+  }
+
+  String? text;
+  String? type;
+
+  Copyrights copyWith({
+    String? text,
+    String? type,
+  }) =>
+      Copyrights(
+        text: text ?? this.text,
+        type: type ?? this.type,
+      );
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['text'] = text;
+    map['type'] = type;
     return map;
   }
 }

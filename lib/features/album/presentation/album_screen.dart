@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skinx_test/features/album/presentation/album_cubit.dart';
 import 'package:skinx_test/features/album/presentation/album_state.dart';
-import 'package:skinx_test/features/search/domain/entity/search_ui_model.dart';
-import 'package:skinx_test/features/search/presentation/search_cubit.dart';
 import 'package:skinx_test/features/search/presentation/search_state.dart';
 import 'package:skinx_test/shared/loading/loading_indicator.dart';
 import 'package:skinx_test/theme/color/app_color.dart';
@@ -23,6 +21,15 @@ class _AlbumScreenState extends State<AlbumScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final arguments = ModalRoute.of(context)?.settings.arguments;
+      if (arguments != null) {
+        final String id = arguments as String;
+        context.read<AlbumCubit>()
+          ..setupAlbumId(id)
+          ..initial();
+      }
+    });
   }
 
   @override
@@ -65,37 +72,11 @@ class _AlbumScreenState extends State<AlbumScreen> {
               color: AppColor.tertiaryTextColor,
             ),
           ),
-          title: TextField(
-            controller: controller,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: AppColor.tertiaryTextColor),
-            onSubmitted: (text) {
-              cubit.initial(
-                text: text,
-              );
-            },
-            decoration: InputDecoration(
-              suffix: GestureDetector(
-                onTap: () {
-                  controller.clear();
-                  cubit.initial(
-                    text: "",
-                  );
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: AppColor.tertiaryTextColor,
-                ),
-              ),
-            ),
-          ),
           actions: [
             IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.mic,
+                Icons.search,
                 color: AppColor.tertiaryTextColor,
               ),
             ),
@@ -109,111 +90,61 @@ class _AlbumScreenState extends State<AlbumScreen> {
             }
             return true;
           },
-          child: NotificationListener<ScrollNotification>(
-            onNotification: (scrollNotification) {
-              if (scrollNotification.metrics.pixels ==
-                  scrollNotification.metrics.maxScrollExtent) {
-                cubit.loadMoreItem();
+          child: BlocConsumer<AlbumCubit, AlbumState>(
+            listenWhen: (prev, current) =>
+                current.eventState != prev.eventState,
+            listener: (context, state) async {},
+            builder: (BuildContext context, AlbumState state) {
+              if (state.eventState == SearchEventState.initial) {
+                return LoadingIndicator(
+                  size: Size(
+                    MediaQuery.sizeOf(context).width,
+                    MediaQuery.sizeOf(context).height * 0.7,
+                  ),
+                );
               }
-              return true;
-            },
-            child: BlocConsumer<AlbumCubit, AlbumState>(
-              listenWhen: (prev, current) =>
-                  current.eventState != prev.eventState,
-              listener: (context, state) async {},
-              builder: (BuildContext context, AlbumState state) {
-                if (state.eventState == SearchEventState.initial) {
-                  return LoadingIndicator(
-                    size: Size(
-                      MediaQuery.sizeOf(context).width,
-                      MediaQuery.sizeOf(context).height * 0.7,
-                    ),
-                  );
-                }
 
-                if (state.eventState == SearchEventState.empty) {
-                  return SizedBox(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: MediaQuery.sizeOf(context).height * 0.7,
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      child: Center(
-                        child: Text(
-                          "No Search",
-                          style: TextStyle(
-                            color: AppColor.tertiaryTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }
-
-                if (state.eventState == SearchEventState.success) {
-                  return ListView.separated(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    itemBuilder: (BuildContext context, int index) {
-                      final SearchUIModel item = state.search[index];
-                      return ListTile(
-                        leading: Image.network(item.image),
-                        title: Text(
-                          item.title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(color: AppColor.tertiaryTextColor),
-                        ),
-                        subtitle: Text(
-                          item.subTitle,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(color: AppColor.secondaryTextColor),
-                        ),
-                      );
-                    },
-                    itemCount: state.search.length,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(
-                      thickness: 16,
-                      color: Colors.transparent,
-                    ),
-                  );
-                }
-
-                if (state.eventState == SearchEventState.networkError) {
-                  return SizedBox(
-                    height: MediaQuery.sizeOf(context).height * 0.7,
+              if (state.eventState == SearchEventState.empty) {
+                return SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: MediaQuery.sizeOf(context).height * 0.7,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Center(
-                      child: TextButton(
-                        onPressed: () {
-                          cubit.initial();
-                        },
-                        child: const Text(
-                          "Try Again",
+                      child: Text(
+                        "No Search",
+                        style: TextStyle(
+                          color: AppColor.tertiaryTextColor,
                         ),
                       ),
                     ),
-                  );
-                }
+                  ),
+                );
+              }
 
-                return const SizedBox();
-              },
-            ),
+              if (state.eventState == SearchEventState.success) {
+                return Container();
+              }
+
+              if (state.eventState == SearchEventState.networkError) {
+                return SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.7,
+                  child: Center(
+                    child: TextButton(
+                      onPressed: () {
+                        cubit.initial();
+                      },
+                      child: const Text(
+                        "Try Again",
+                      ),
+                    ),
+                  ),
+                );
+              }
+
+              return const SizedBox();
+            },
           ),
-        ),
-        bottomNavigationBar: BlocConsumer<AlbumCubit, AlbumState>(
-          listenWhen: (prev, current) => current.eventState != prev.eventState,
-          listener: (context, state) async {},
-          builder: (context, state) {
-            if (state.actionState == SearchActionState.loadMore) {
-              return const LoadingIndicator(size: Size(80, 80));
-            }
-
-            return const SizedBox(
-              height: 0,
-            );
-          },
         ),
       ),
     );
