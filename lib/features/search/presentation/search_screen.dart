@@ -16,12 +16,11 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  TextEditingController controller = TextEditingController();
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<SearchCubit>().initial();
-    });
   }
 
   @override
@@ -64,17 +63,37 @@ class _SearchScreenState extends State<SearchScreen> {
               color: AppColor.tertiaryTextColor,
             ),
           ),
-          title: const Text(
-            "My Search",
-            style: TextStyle(
-              color: AppColor.tertiaryTextColor,
+          title: TextField(
+            controller: controller,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: AppColor.tertiaryTextColor),
+            onSubmitted: (text) {
+              cubit.initial(
+                text: text,
+              );
+            },
+            decoration: InputDecoration(
+              suffix: GestureDetector(
+                onTap: () {
+                  controller.clear();
+                  cubit.initial(
+                    text: "",
+                  );
+                },
+                child: const Icon(
+                  Icons.close,
+                  color: AppColor.tertiaryTextColor,
+                ),
+              ),
             ),
           ),
           actions: [
             IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.search,
+                Icons.mic,
                 color: AppColor.tertiaryTextColor,
               ),
             ),
