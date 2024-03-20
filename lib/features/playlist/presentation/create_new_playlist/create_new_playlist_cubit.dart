@@ -34,7 +34,7 @@ class CreateNewPlaylistCubit extends Cubit<CreateNewPlaylistState> {
         request: CreateNewPlaylistRequest(
           description: description,
           name: name,
-          public: false,
+          public: true,
           userId: userProfileResponse?.id ?? "",
         ),
       );
