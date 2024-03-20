@@ -5,6 +5,7 @@ This project make for SkinX Test
 
 # Required
 - Flutter **3.16.9**
+- Please change your clientId and clientSecret in assets/env before build app
 
 # Optional
 - Required FVM to config flutter version
@@ -12,3 +13,9 @@ This project make for SkinX Test
 
 # Testing
 We using mockito for mock unit test
+
+# Design pattern
+We using mvvm + clean in this project
+
+# State management
+We using BLoC
