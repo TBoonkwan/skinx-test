@@ -23,7 +23,9 @@ class PlaylistProvider {
       ),
     ),
     BlocProvider<PlaylistDetailCubit>(
-      create: (BuildContext context) => PlaylistDetailCubit(),
+      create: (BuildContext context) => PlaylistDetailCubit(
+        playlistRepository: moduleProvider.get<IPlaylistRepository>(),
+      ),
     ),
   ];
 }

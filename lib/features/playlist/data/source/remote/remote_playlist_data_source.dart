@@ -35,7 +35,7 @@ class RemotePlaylistDataSource extends PlaylistDataSource {
     required PlaylistDetailRequest request,
   }) async {
     var response = await dio.get(
-      "playlists/${request.playlistId}",
+      "playlists/${request.playlistId}/tracks",
       queryParameters: request.toJson(),
     );
     return PlaylistDetailResponse.fromJson(response.data);

@@ -18,12 +18,20 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {});
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final arguments = ModalRoute.of(context)?.settings.arguments;
+      if (arguments!=null) {
+        final String playlistId = arguments as String;
+        final PlaylistDetailCubit cubit = context.read<PlaylistDetailCubit>();
+        cubit.getPlaylistDetail(playlistId: playlistId);
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final PlaylistDetailCubit cubit = context.read<PlaylistDetailCubit>();
+
     return BlocListener<PlaylistDetailCubit, PlaylistDetailState>(
       listenWhen: (prev, current) => current.actionState != prev.actionState,
       listener: (context, state) {},
@@ -44,8 +52,7 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
         ),
         body: SingleChildScrollView(
           child: BlocConsumer<PlaylistDetailCubit, PlaylistDetailState>(
-            listenWhen: (prev, current) =>
-                current.eventState != prev.eventState,
+            listenWhen: (prev, current) => current.eventState != prev.eventState,
             listener: (context, state) async {},
             builder: (BuildContext context, PlaylistDetailState state) {
               if (state.eventState == PlaylistDetailEventState.loading) {

@@ -12,7 +12,7 @@ class MockAlbumDataSource extends AlbumDataSource {
     required AlbumRequest request,
   }) async {
     final String response = await rootBundle.loadString(
-      'assets/mock/album.json',
+      'assets/mock/get_album_detail.json',
     );
 
     final Map<String, dynamic> data = jsonDecode(response);

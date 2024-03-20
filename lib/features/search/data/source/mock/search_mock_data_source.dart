@@ -11,7 +11,7 @@ class MockSearchDataSource extends SearchDataSource {
     required MySearchRequest request,
   }) async {
     final String response = await rootBundle.loadString(
-      'assets/mock/search.json',
+      'assets/mock/search_album.json',
     );
 
     final Map<String, dynamic> data = jsonDecode(response);

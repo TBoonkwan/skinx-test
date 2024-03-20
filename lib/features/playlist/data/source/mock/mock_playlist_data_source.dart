@@ -14,7 +14,7 @@ class MockPlaylistDataSource extends PlaylistDataSource {
     required MyPlaylistRequest request,
   }) async {
     final String response = await rootBundle.loadString(
-      'assets/mock/get_playlist_list.json',
+      'assets/mock/get_my_playlist.json',
     );
 
     final Map<String, dynamic> data = jsonDecode(response);
@@ -31,7 +31,7 @@ class MockPlaylistDataSource extends PlaylistDataSource {
     required PlaylistDetailRequest request,
   }) async{
     final String response = await rootBundle.loadString(
-      'assets/mock/playlist_detail.json',
+      'assets/mock/get_playlist_detail.json',
     );
 
     final Map<String, dynamic> data = jsonDecode(response);
