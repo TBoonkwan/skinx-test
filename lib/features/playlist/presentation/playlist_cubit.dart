@@ -40,14 +40,14 @@ class PlaylistCubit extends Cubit<PlaylistState> {
   }
 
   Future<PlaylistModel> getMyPlaylist({
-    required UserProfileResponse userProfileResponse,
+    required String id,
   }) async {
     try {
       return await playlistUseCase.getPlaylist(
         request: MyPlaylistRequest(
           offset: nextPage,
           limit: 20,
-          userId: userProfileResponse.id.toString(),
+          userId: id.toString(),
         ),
       );
     } on DioException {
@@ -74,35 +74,7 @@ class PlaylistCubit extends Cubit<PlaylistState> {
     await spotifyRepository.saveUserProfile(
         userProfileResponse: userProfileResponse);
 
-    try {
-      final PlaylistModel model =
-          await getMyPlaylist(userProfileResponse: userProfileResponse);
-
-      totalPage = model.totalPage;
-
-      List<PlaylistUIModel> uiModel = model.uiModel;
-
-      if (uiModel.isEmpty == true) {
-        emit(
-          state.copyWith(
-            playlist: [],
-            eventState: PlaylistEventState.empty,
-          ),
-        );
-      } else {
-        emit(
-          state.copyWith(
-            playlist: uiModel,
-            eventState: PlaylistEventState.success,
-          ),
-        );
-      }
-    } on Exception {
-      emit(state.copyWith(
-        actionState: PlaylistActionState.networkError,
-        eventState: PlaylistEventState.networkError,
-      ));
-    }
+    await reloadPlaylist();
   }
 
   Future getPlaylistDetail({
@@ -141,5 +113,36 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
   void reset() {
     emit(const PlaylistState());
+  }
+
+  Future reloadPlaylist() async {
+    try {
+      final PlaylistModel model = await getMyPlaylist(id: state.userProfileResponse?.id ?? "",);
+
+      totalPage = model.totalPage;
+
+      List<PlaylistUIModel> uiModel = model.uiModel;
+
+      if (uiModel.isEmpty == true) {
+        emit(
+          state.copyWith(
+            playlist: [],
+            eventState: PlaylistEventState.empty,
+          ),
+        );
+      } else {
+        emit(
+          state.copyWith(
+            playlist: uiModel,
+            eventState: PlaylistEventState.success,
+          ),
+        );
+      }
+    } on Exception {
+      emit(state.copyWith(
+        actionState: PlaylistActionState.networkError,
+        eventState: PlaylistEventState.networkError,
+      ));
+    }
   }
 }

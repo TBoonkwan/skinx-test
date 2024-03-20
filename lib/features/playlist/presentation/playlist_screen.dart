@@ -142,8 +142,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(PlaylistRoute.createPlaylistScreen);
+          onPressed: () async{
+            var result = await Navigator.of(context).pushNamed(PlaylistRoute.createPlaylistScreen);
+            if (result!=null) {
+              cubit.reloadPlaylist();
+            }
           },
           child: const Icon(
             Icons.add,

@@ -17,6 +17,8 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
+  BuildContext? dialogContext;
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<CreateNewPlaylistCubit, CreateNewPlaylistState>(
@@ -24,6 +26,9 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
       listener: (context, state) {
         switch (state.actionState) {
           case CreateNewPlaylistPageActionState.success:
+            if (dialogContext!=null) {
+              Navigator.of(dialogContext!).pop();
+            }
             Navigator.of(context).pop(true);
             break;
           case CreateNewPlaylistPageActionState.error:
@@ -31,6 +36,7 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
             showDialog(
               context: context,
               builder: (context) {
+                dialogContext = context;
                 return AlertDialog(
                   title: Text("Sorry"),
                   content: Text("Can't create playlist right now"),
@@ -49,6 +55,7 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
             showDialog(
               context: context,
               builder: (context) {
+                dialogContext = context;
                 return const SizedBox(
                   width: 80,
                   height: 80,
@@ -98,7 +105,7 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
-                      .headlineMedium
+                      .titleLarge
                       ?.copyWith(color: Colors.white),
                   validator: (String? text) {
                     if (text?.isEmpty == true) {
@@ -107,11 +114,11 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    hintText: "My playlist #2",
-                    hintStyle: Theme.of(context)
+                    labelText: "enter playlist name",
+                    labelStyle: Theme.of(context)
                         .textTheme
-                        .headlineMedium
-                        ?.copyWith(color: Colors.white),
+                        .titleLarge
+                        ?.copyWith(color: AppColor.secondaryTextColor),
                   ),
                 ),
                 TextFormField(
@@ -119,14 +126,14 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
-                      .headlineMedium
+                      .titleLarge
                       ?.copyWith(color: Colors.white),
                   decoration: InputDecoration(
-                    hintText: "My playlist #2",
-                    hintStyle: Theme.of(context)
+                    labelText: "Please enter description",
+                    labelStyle: Theme.of(context)
                         .textTheme
-                        .headlineMedium
-                        ?.copyWith(color: Colors.white),
+                        .titleLarge
+                        ?.copyWith(color: AppColor.secondaryTextColor),
                   ),
                 ),
                 const SizedBox(
