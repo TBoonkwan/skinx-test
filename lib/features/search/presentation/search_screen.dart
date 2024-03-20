@@ -65,31 +65,13 @@ class _SearchScreenState extends State<SearchScreen> {
               color: AppColor.tertiaryTextColor,
             ),
           ),
-          title: TextField(
+          title: SearchTextField(
             controller: controller,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: AppColor.tertiaryTextColor),
-            onSubmitted: (text) {
+            onSubmit: (text) {
               cubit.initial(
                 text: text,
               );
             },
-            decoration: InputDecoration(
-              suffix: GestureDetector(
-                onTap: () {
-                  controller.clear();
-                  cubit.initial(
-                    text: "",
-                  );
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: AppColor.tertiaryTextColor,
-                ),
-              ),
-            ),
           ),
           actions: [
             IconButton(
@@ -150,41 +132,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 }
 
                 if (state.eventState == SearchEventState.success) {
-                  return ListView.separated(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    itemBuilder: (BuildContext context, int index) {
-                      final SearchUIModel item = state.search[index];
-                      return ListTile(
-                        onTap: () {
-                          Navigator.of(context).pushNamed(
-                            AlbumRoute.albumScreen,
-                            arguments: item.id,
-                          );
-                        },
-                        leading: Image.network(item.image),
-                        title: Text(
-                          item.title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(color: Colors.white),
-                        ),
-                        subtitle: Text(
-                          item.subTitle,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(color: AppColor.tertiaryTextColor),
-                        ),
-                      );
-                    },
-                    itemCount: state.search.length,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(
-                      thickness: 16,
-                      color: Colors.transparent,
-                    ),
-                  );
+                  return SearchAlbumContent(search: state.search);
                 }
 
                 if (state.eventState == SearchEventState.networkError) {
@@ -221,6 +169,84 @@ class _SearchScreenState extends State<SearchScreen> {
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+class SearchTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final Function(String) onSubmit;
+
+  const SearchTextField(
+      {super.key, required this.controller, required this.onSubmit});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+      style: Theme.of(context)
+          .textTheme
+          .titleMedium
+          ?.copyWith(color: AppColor.tertiaryTextColor),
+      onSubmitted: (text) {
+        onSubmit(text);
+      },
+      decoration: InputDecoration(
+        suffix: GestureDetector(
+          onTap: () {
+            controller.clear();
+            onSubmit("");
+          },
+          child: const Icon(
+            Icons.close,
+            color: AppColor.tertiaryTextColor,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SearchAlbumContent extends StatelessWidget {
+  final List<SearchUIModel> search;
+
+  const SearchAlbumContent({super.key, required this.search});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      itemBuilder: (BuildContext context, int index) {
+        final SearchUIModel item = search[index];
+        return ListTile(
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              AlbumRoute.albumScreen,
+              arguments: item.id,
+            );
+          },
+          leading: Image.network(item.image),
+          title: Text(
+            item.title,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: Colors.white),
+          ),
+          subtitle: Text(
+            item.subTitle,
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(color: AppColor.tertiaryTextColor),
+          ),
+        );
+      },
+      itemCount: search.length,
+      separatorBuilder: (BuildContext context, int index) => const Divider(
+        thickness: 16,
+        color: Colors.transparent,
       ),
     );
   }

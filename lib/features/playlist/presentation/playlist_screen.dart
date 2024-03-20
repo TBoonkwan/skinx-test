@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skinx_test/features/album/config/album_route.dart';
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
 import 'package:skinx_test/features/playlist/config/playlist_route.dart';
+import 'package:skinx_test/features/playlist/domain/entity/playlist_ui_model.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_cubit.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_state.dart';
 import 'package:skinx_test/features/search/config/search_route.dart';
@@ -45,7 +46,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             Navigator.of(context).pushNamed(
               AlbumRoute.albumScreen,
               arguments: state.playlistDetailResponse?.tracks?.items?.first
-                      .track?.album?.id ?? "",
+                      .track?.album?.id ??
+                  "",
             );
             break;
           case PlaylistActionState.networkError:
@@ -202,49 +204,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                   itemCount: state.playlist.length,
                   itemBuilder: (BuildContext context, int index) {
                     final item = state.playlist[index];
-                    return GestureDetector(
-                      onTap: () {
+                    return MyPlaylistItem(
+                      item: item,
+                      onClicked: (id) {
                         cubit.getPlaylistDetail(playlistId: item.id);
                       },
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Builder(builder: (context) {
-                              if (item.image.isEmpty == true) {
-                                return const Icon(
-                                  Icons.photo,
-                                  size: 160,
-                                );
-                              }
-                              return Image.network(
-                                item.image,
-                                height: 160,
-                                fit: BoxFit.cover,
-                              );
-                            }),
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            item.title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(color: Colors.white),
-                          ),
-                          Text(
-                            item.subTitle,
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelLarge
-                                ?.copyWith(color: AppColor.tertiaryTextColor),
-                          ),
-                        ],
-                      ),
                     );
                   },
                 );
@@ -270,6 +234,65 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             },
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MyPlaylistItem extends StatelessWidget {
+  final PlaylistUIModel item;
+  final Function(String) onClicked;
+
+  const MyPlaylistItem({
+    super.key,
+    required this.item,
+    required this.onClicked,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onClicked.call(item.id);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Builder(builder: (context) {
+              if (item.image.isEmpty == true) {
+                return const Icon(
+                  Icons.photo,
+                  size: 160,
+                );
+              }
+              return Image.network(
+                item.image,
+                height: 160,
+                fit: BoxFit.cover,
+              );
+            }),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            item.title,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: Colors.white),
+          ),
+          Text(
+            item.subTitle,
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(color: AppColor.tertiaryTextColor),
+          ),
+        ],
       ),
     );
   }
