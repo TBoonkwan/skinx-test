@@ -15,7 +15,6 @@ import 'playlist_cubit_test.mocks.dart';
 
 @GenerateMocks([
   IGetPlaylistUseCase,
-  IPlaylistRepository,
   SpotifyAuthenticationRepository,
 ])
 void main() {
@@ -24,16 +23,13 @@ void main() {
   late PlaylistCubit pageCubit;
 
   late MockIGetPlaylistUseCase mockUseCase;
-  late MockIPlaylistRepository mockRepository;
   late MockSpotifyAuthenticationRepository mockSpotify;
 
   setUp(
     () async {
       mockUseCase = MockIGetPlaylistUseCase();
-      mockRepository = MockIPlaylistRepository();
       mockSpotify = MockSpotifyAuthenticationRepository();
       pageCubit = PlaylistCubit(
-          playlistRepository: mockRepository,
           playlistUseCase: mockUseCase,
           spotifyRepository: mockSpotify);
     },
@@ -59,7 +55,6 @@ void main() {
                     ]));
 
         return PlaylistCubit(
-            playlistRepository: mockRepository,
             playlistUseCase: mockUseCase,
             spotifyRepository: mockSpotify);
       },

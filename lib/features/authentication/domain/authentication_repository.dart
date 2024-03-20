@@ -4,6 +4,10 @@ import 'package:skinx_test/features/authentication/data/model/user_profile_respo
 abstract class AuthenticationRepository {
   Future<AccessTokenResponse> authentication();
 
+  Future<AccessTokenResponse> refreshToken({
+    required String refreshToken,
+  });
+
   Future<UserProfileResponse> getUserProfile();
 
   Future saveUserProfile({

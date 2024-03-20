@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skinx_test/features/album/config/album_route.dart';
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
 import 'package:skinx_test/features/playlist/config/playlist_route.dart';
 import 'package:skinx_test/features/playlist/domain/entity/playlist_ui_model.dart';
@@ -42,14 +41,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       listenWhen: (prev, current) => current.actionState != prev.actionState,
       listener: (context, state) async {
         switch (state.actionState) {
-          case PlaylistActionState.gotoAlbum:
-            Navigator.of(context).pushNamed(
-              AlbumRoute.albumScreen,
-              arguments: state.playlistDetailResponse?.tracks?.items?.first
-                      .track?.album?.id ??
-                  "",
-            );
-            break;
           case PlaylistActionState.networkError:
             showDialog(
               context: context,
@@ -142,9 +133,10 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () async{
-            var result = await Navigator.of(context).pushNamed(PlaylistRoute.createPlaylistScreen);
-            if (result!=null) {
+          onPressed: () async {
+            var result = await Navigator.of(context)
+                .pushNamed(PlaylistRoute.createPlaylistScreen);
+            if (result != null) {
               cubit.reloadPlaylist();
             }
           },
@@ -210,7 +202,10 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                     return MyPlaylistItem(
                       item: item,
                       onClicked: (id) {
-                        cubit.getPlaylistDetail(playlistId: item.id);
+                        Navigator.of(context).pushNamed(
+                          PlaylistRoute.playlistDetail,
+                          arguments: id,
+                        );
                       },
                     );
                   },

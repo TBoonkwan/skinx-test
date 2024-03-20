@@ -52,6 +52,5 @@ enum PlaylistEventState { initial, empty, networkError, success, none }
 enum PlaylistActionState {
   networkError,
   playlistError,
-  gotoAlbum,
   none,
 }

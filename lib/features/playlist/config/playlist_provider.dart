@@ -6,13 +6,13 @@ import 'package:skinx_test/features/playlist/domain/repository/playlist_reposito
 import 'package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase.dart';
 import 'package:skinx_test/features/playlist/presentation/create_new_playlist/create_new_playlist_cubit.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_cubit.dart';
+import 'package:skinx_test/features/playlist/presentation/playlist_detail/playlist_detail_cubit.dart';
 
 class PlaylistProvider {
   static final List<BlocProvider> providers = [
     BlocProvider<PlaylistCubit>(
       create: (BuildContext context) => PlaylistCubit(
         playlistUseCase: moduleProvider.get<IGetPlaylistUseCase>(),
-        playlistRepository: moduleProvider.get<IPlaylistRepository>(),
         spotifyRepository:
             moduleProvider.get<SpotifyAuthenticationRepository>(),
       ),
@@ -21,6 +21,9 @@ class PlaylistProvider {
       create: (BuildContext context) => CreateNewPlaylistCubit(
         playlistRepository: moduleProvider.get<IPlaylistRepository>(),
       ),
+    ),
+    BlocProvider<PlaylistDetailCubit>(
+      create: (BuildContext context) => PlaylistDetailCubit(),
     ),
   ];
 }

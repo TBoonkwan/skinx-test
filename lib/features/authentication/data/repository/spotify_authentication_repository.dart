@@ -22,7 +22,7 @@ class SpotifyAuthenticationRepository extends AuthenticationRepository {
 
     final authorizationResponse = await client.requestAuthorization(
       clientId: dotenv.env[ConfigConstants.clientId].toString(),
-      customParams: {'show_dialog': 'true'},
+      // customParams: {'show_dialog': 'true'},
       // state: getRandomString(16),
       enableState: false,
       scopes: [
@@ -38,6 +38,30 @@ class SpotifyAuthenticationRepository extends AuthenticationRepository {
       code: code.toString(),
       clientId: dotenv.env[ConfigConstants.clientId].toString(),
       clientSecret: dotenv.env[ConfigConstants.clientSecret].toString(),
+    );
+
+    return response;
+  }
+
+  @override
+  Future<AccessTokenResponse> refreshToken({
+    required String refreshToken,
+  }) async {
+    final client = SpotifyOAuth2Client(
+      customUriScheme: ConfigConstants.customUriScheme,
+      redirectUri: ConfigConstants.redirectUri,
+    );
+
+    final response = await client.refreshToken(
+      refreshToken,
+      clientId: dotenv.env[ConfigConstants.clientId].toString(),
+      clientSecret: dotenv.env[ConfigConstants.clientSecret].toString(),
+      scopes: [
+        'user-read-private',
+        'user-read-email',
+        'playlist-modify-public',
+        'playlist-modify-private',
+      ],
     );
 
     return response;

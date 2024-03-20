@@ -6,11 +6,8 @@ import "package:skinx_test/core/constants/app_constants.dart";
 import "package:skinx_test/core/exception/app_exception.dart";
 import "package:skinx_test/features/authentication/data/model/user_profile_response.dart";
 import "package:skinx_test/features/authentication/data/repository/spotify_authentication_repository.dart";
-import "package:skinx_test/features/playlist/data/model/detail/playlist_detail_request.dart";
-import "package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart";
 import "package:skinx_test/features/playlist/data/model/my_playlist_request.dart";
 import "package:skinx_test/features/playlist/domain/entity/playlist_ui_model.dart";
-import "package:skinx_test/features/playlist/domain/repository/playlist_repository.dart";
 import "package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase.dart";
 
 import "playlist_state.dart";
@@ -18,7 +15,6 @@ import "playlist_state.dart";
 class PlaylistCubit extends Cubit<PlaylistState> {
   IGetPlaylistUseCase playlistUseCase;
 
-  IPlaylistRepository playlistRepository;
   SpotifyAuthenticationRepository spotifyRepository;
 
   num totalPage = 0;
@@ -26,17 +22,21 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
   PlaylistCubit({
     required this.playlistUseCase,
-    required this.playlistRepository,
     required this.spotifyRepository,
   }) : super(const PlaylistState());
 
   Future<void> authentication() async {
+    final AccessTokenResponse? response;
     final GetStorage storage = GetStorage();
+    final String? refreshToken = storage.read(AppConstants.refreshToken);
+    if (refreshToken != null) {
+      response = await spotifyRepository.refreshToken(refreshToken: refreshToken);
+    } else {
+      response = await spotifyRepository.authentication();
+    }
 
-    AccessTokenResponse response = await spotifyRepository.authentication();
-
-    storage.write(AppConstants.accessToken, response.accessToken);
-    storage.write(AppConstants.refreshToken, response.refreshToken);
+    await storage.write(AppConstants.accessToken, response.accessToken);
+    await storage.write(AppConstants.refreshToken, response.refreshToken);
   }
 
   Future<PlaylistModel> getMyPlaylist({
@@ -64,51 +64,15 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
     await authentication();
 
-    UserProfileResponse userProfileResponse =
-        await spotifyRepository.getUserProfile();
+    UserProfileResponse userProfileResponse = await spotifyRepository.getUserProfile();
 
     emit(state.copyWith(
       userProfileResponse: userProfileResponse,
     ));
 
-    await spotifyRepository.saveUserProfile(
-        userProfileResponse: userProfileResponse);
+    await spotifyRepository.saveUserProfile(userProfileResponse: userProfileResponse);
 
     await reloadPlaylist();
-  }
-
-  Future getPlaylistDetail({
-    required String playlistId,
-  }) async {
-    PlaylistDetailRequest request = PlaylistDetailRequest(
-      playlistId: playlistId,
-      offset: 0,
-      limit: 20,
-    );
-
-    PlaylistDetailResponse playlistDetailResponse =
-        await playlistRepository.getPlaylistDetail(
-      request: request,
-    );
-
-    if (playlistDetailResponse.tracks?.items?.isEmpty == true) {
-      emit(state.copyWith(
-        actionState: PlaylistActionState.playlistError,
-      ));
-
-      emit(state.copyWith(
-        actionState: PlaylistActionState.none,
-      ));
-    } else {
-      emit(state.copyWith(
-        actionState: PlaylistActionState.gotoAlbum,
-        playlistDetailResponse: playlistDetailResponse,
-      ));
-
-      emit(state.copyWith(
-        actionState: PlaylistActionState.none,
-      ));
-    }
   }
 
   void reset() {
@@ -117,7 +81,9 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
   Future reloadPlaylist() async {
     try {
-      final PlaylistModel model = await getMyPlaylist(id: state.userProfileResponse?.id ?? "",);
+      final PlaylistModel model = await getMyPlaylist(
+        id: state.userProfileResponse?.id ?? "",
+      );
 
       totalPage = model.totalPage;
 

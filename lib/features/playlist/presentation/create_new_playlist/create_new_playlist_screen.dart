@@ -26,7 +26,7 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
       listener: (context, state) {
         switch (state.actionState) {
           case CreateNewPlaylistPageActionState.success:
-            if (dialogContext!=null) {
+            if (dialogContext != null) {
               Navigator.of(dialogContext!).pop();
             }
             Navigator.of(context).pop(true);
@@ -38,14 +38,14 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
               builder: (context) {
                 dialogContext = context;
                 return AlertDialog(
-                  title: Text("Sorry"),
-                  content: Text("Can't create playlist right now"),
+                  title: const Text("Sorry"),
+                  content: const Text("Can't create playlist right now"),
                   actions: [
                     TextButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: Text("Close"))
+                        child: const Text("Close"))
                   ],
                 );
               },
