@@ -47,7 +47,7 @@ class CreateNewPlaylistRequest {
     final map = <String, dynamic>{};
     map['name'] = name;
     map['description'] = description;
-    map['public'] = public;
+    map['public'] = true;
     return map;
   }
 }
