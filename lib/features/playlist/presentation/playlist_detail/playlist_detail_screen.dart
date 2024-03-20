@@ -95,25 +95,6 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                   SliverList(
                     delegate: SliverChildListDelegate(
                       [
-                        const SizedBox(
-                          height: 24,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16),
-                                backgroundColor: Colors.white),
-                            child: const Text(
-                              "Add to this playlist",
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 24,
-                        ),
                         ListView.separated(
                           shrinkWrap: true,
                           primary: false,
@@ -121,7 +102,8 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             final item = response?.tracks?.items?[index];
                             return ListTile(
-                              leading: Image.network(item?.track?.album?.images?.first.url ?? ""),
+                              leading: Image.network(
+                                  item?.track?.album?.images?.first.url ?? ""),
                               title: Text(
                                 item?.track?.name ?? "",
                                 style: Theme.of(context)
@@ -134,7 +116,8 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelLarge
-                                    ?.copyWith(color: AppColor.tertiaryTextColor),
+                                    ?.copyWith(
+                                        color: AppColor.tertiaryTextColor),
                               ),
                               trailing: IconButton(
                                 icon: const Icon(
@@ -153,31 +136,6 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                           },
                           itemCount: response?.tracks?.items?.length ?? 0,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                "Recommended songs",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(
-                                        color: AppColor.tertiaryTextColor),
-                              ),
-                              Text(
-                                "Base on your listening",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                        color: AppColor.secondaryTextColor),
-                              ),
-                            ],
-                          ),
-                        )
                       ],
                     ),
                   ),

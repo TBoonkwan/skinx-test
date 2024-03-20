@@ -40,15 +40,4 @@ class RemotePlaylistDataSource extends PlaylistDataSource {
     );
     return PlaylistDetailResponse.fromJson(response.data);
   }
-
-  @override
-  Future<PlaylistDetailResponse> getMyPlaylistTracks({
-    required PlaylistDetailRequest request,
-  }) async {
-    var response = await dio.get(
-      "playlists/${request.playlistId}/tracks",
-      queryParameters: request.toJson(),
-    );
-    return PlaylistDetailResponse.fromJson(response.data);
-  }
 }

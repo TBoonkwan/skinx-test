@@ -37,15 +37,4 @@ class MockPlaylistDataSource extends PlaylistDataSource {
     final Map<String, dynamic> data = jsonDecode(response);
     return PlaylistDetailResponse.fromJson(data);
   }
-
-  @override
-  Future<PlaylistDetailResponse> getMyPlaylistTracks(
-      {required PlaylistDetailRequest request}) async {
-    final String response = await rootBundle.loadString(
-      'assets/mock/get_playlist_track.json',
-    );
-
-    final Map<String, dynamic> data = jsonDecode(response);
-    return PlaylistDetailResponse.fromJson(data);
-  }
 }
