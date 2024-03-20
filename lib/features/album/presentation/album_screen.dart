@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skinx_test/features/album/domain/entity/album_ui_model.dart';
 import 'package:skinx_test/features/album/presentation/album_cubit.dart';
 import 'package:skinx_test/features/album/presentation/album_state.dart';
+import 'package:skinx_test/features/search/config/search_route.dart';
 import 'package:skinx_test/shared/loading/loading_indicator.dart';
 import 'package:skinx_test/theme/color/app_color.dart';
 
@@ -89,7 +90,9 @@ class _AlbumScreenState extends State<AlbumScreen> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(SearchRoute.searchScreen);
+              },
               icon: const Icon(
                 Icons.search,
                 color: AppColor.tertiaryTextColor,

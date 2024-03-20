@@ -25,7 +25,12 @@ class SpotifyAuthenticationRepository extends AuthenticationRepository {
       customParams: {'show_dialog': 'true'},
       // state: getRandomString(16),
       enableState: false,
-      scopes: ['user-read-private', 'user-read-email'],
+      scopes: [
+        'user-read-private',
+        'user-read-email',
+        'playlist-modify-public',
+        'playlist-modify-private',
+      ],
     );
     final code = authorizationResponse.code;
 
