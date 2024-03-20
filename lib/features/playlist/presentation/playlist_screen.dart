@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skinx_test/features/album/config/album_route.dart';
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
 import 'package:skinx_test/features/playlist/config/playlist_route.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_cubit.dart';
@@ -40,7 +41,30 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       listenWhen: (prev, current) => current.actionState != prev.actionState,
       listener: (context, state) async {
         switch (state.actionState) {
+          case PlaylistActionState.gotoAlbum:
+            Navigator.of(context).pushNamed(
+              AlbumRoute.albumScreen,
+              arguments: state.playlistDetailResponse?.tracks?.items?.first
+                      .track?.album?.id ?? "",
+            );
+            break;
           case PlaylistActionState.networkError:
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text("Sorry"),
+                content: const Text(
+                    "Cannot get your playlist right now, please try again later"),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text("OK"),
+                  ),
+                ],
+              ),
+            );
+            break;
+          case PlaylistActionState.playlistError:
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
@@ -178,44 +202,49 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                   itemCount: state.playlist.length,
                   itemBuilder: (BuildContext context, int index) {
                     final item = state.playlist[index];
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Builder(builder: (context) {
-                            if (item.image.isEmpty == true) {
-                              return const Icon(
-                                Icons.photo,
-                                size: 160,
+                    return GestureDetector(
+                      onTap: () {
+                        cubit.getPlaylistDetail(playlistId: item.id);
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Builder(builder: (context) {
+                              if (item.image.isEmpty == true) {
+                                return const Icon(
+                                  Icons.photo,
+                                  size: 160,
+                                );
+                              }
+                              return Image.network(
+                                item.image,
+                                height: 160,
+                                fit: BoxFit.cover,
                               );
-                            }
-                            return Image.network(
-                              item.image,
-                              height: 160,
-                              fit: BoxFit.cover,
-                            );
-                          }),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          item.title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(color: Colors.white),
-                        ),
-                        Text(
-                          item.subTitle,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(color: AppColor.tertiaryTextColor),
-                        ),
-                      ],
+                            }),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            item.title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(color: Colors.white),
+                          ),
+                          Text(
+                            item.subTitle,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(color: AppColor.tertiaryTextColor),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 );

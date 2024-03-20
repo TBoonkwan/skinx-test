@@ -45,7 +45,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
               builder: (context) => AlertDialog(
                 title: const Text("Sorry"),
                 content: const Text(
-                    "Cannot get your search right now, please try again later"),
+                    "Cannot get the detail now, please try again later"),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context),

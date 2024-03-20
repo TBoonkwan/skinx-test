@@ -62,6 +62,19 @@ class _CreateNewPlaylistScreenState extends State<CreateNewPlaylistScreen> {
       },
       child: Scaffold(
         backgroundColor: AppColor.primaryTextColor,
+        appBar: AppBar(
+          backgroundColor: AppColor.primaryTextColor,
+          toolbarHeight: 56,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: AppColor.tertiaryTextColor,
+            ),
+          ),
+        ),
         body: Form(
           key: key,
           child: Padding(

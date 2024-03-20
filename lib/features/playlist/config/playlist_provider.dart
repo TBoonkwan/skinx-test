@@ -12,6 +12,7 @@ class PlaylistProvider {
     BlocProvider<PlaylistCubit>(
       create: (BuildContext context) => PlaylistCubit(
         playlistUseCase: moduleProvider.get<IGetPlaylistUseCase>(),
+        playlistRepository: moduleProvider.get<IPlaylistRepository>(),
         spotifyRepository:
             moduleProvider.get<SpotifyAuthenticationRepository>(),
       ),

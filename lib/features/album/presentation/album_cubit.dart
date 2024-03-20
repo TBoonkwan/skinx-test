@@ -61,6 +61,9 @@ class AlbumCubit extends Cubit<AlbumState> {
         actionState: AlbumActionState.networkError,
         eventState: AlbumEventState.networkError,
       ));
+      emit(state.copyWith(
+        actionState: AlbumActionState.none,
+      ));
     }
   }
 
