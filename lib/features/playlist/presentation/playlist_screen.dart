@@ -4,8 +4,6 @@ import 'package:skinx_test/features/authentication/data/model/user_profile_respo
 import 'package:skinx_test/features/playlist/presentation/playlist_cubit.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_state.dart';
 import 'package:skinx_test/features/search/config/search_route.dart';
-import 'package:skinx_test/features/search/presentation/search_cubit.dart';
-import 'package:skinx_test/features/search/presentation/search_state.dart';
 import 'package:skinx_test/shared/gridview/gridview_fixed_height.dart';
 import 'package:skinx_test/shared/loading/loading_indicator.dart';
 import 'package:skinx_test/theme/color/app_color.dart';
@@ -197,14 +195,14 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: AppColor.tertiaryTextColor),
+                              ?.copyWith(color: Colors.white),
                         ),
                         Text(
                           item.subTitle,
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge
-                              ?.copyWith(color: AppColor.secondaryTextColor),
+                              ?.copyWith(color: AppColor.tertiaryTextColor),
                         ),
                       ],
                     );

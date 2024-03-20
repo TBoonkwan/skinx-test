@@ -27,6 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final SearchCubit cubit = context.read<SearchCubit>();
+    controller.text = cubit.state.query.toString();
     return BlocListener<SearchCubit, SearchState>(
       listenWhen: (prev, current) => current.actionState != prev.actionState,
       listener: (context, state) async {
@@ -166,14 +167,14 @@ class _SearchScreenState extends State<SearchScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: AppColor.tertiaryTextColor),
+                              ?.copyWith(color: Colors.white),
                         ),
                         subtitle: Text(
                           item.subTitle,
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge
-                              ?.copyWith(color: AppColor.secondaryTextColor),
+                              ?.copyWith(color: AppColor.tertiaryTextColor),
                         ),
                       );
                     },

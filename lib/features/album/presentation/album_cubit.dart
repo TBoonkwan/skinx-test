@@ -15,7 +15,7 @@ class AlbumCubit extends Cubit<AlbumState> {
     required this.searchUseCase,
   }) : super(const AlbumState());
 
-  Future<AlbumUIModel?> getMySearch() async {
+  Future<AlbumUIModel?> getAlbumDetail() async {
     try {
       return await searchUseCase.getAlbumDetail(
         request: AlbumRequest(
@@ -39,7 +39,7 @@ class AlbumCubit extends Cubit<AlbumState> {
     );
 
     try {
-      final AlbumUIModel? model = await getMySearch();
+      final AlbumUIModel? model = await getAlbumDetail();
 
       if (model == null) {
         emit(

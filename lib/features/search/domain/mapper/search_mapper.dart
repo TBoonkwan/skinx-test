@@ -16,7 +16,7 @@ class SearchMapper {
           image: element.images?.first.url.toString() ?? "",
           id: element.id ?? "",
           title: element.name ?? "",
-          subTitle: element.artists?.first.name ?? "",
+          subTitle: "${element.albumType ?? ""} : ${element.artists?.first.name ?? ""}",
         ),
       );
     });

@@ -9,8 +9,6 @@ import "package:skinx_test/features/search/presentation/search_state.dart";
 class SearchCubit extends Cubit<SearchState> {
   IGetSearchUseCase searchUseCase;
 
-  String query = "";
-
   num totalPage = 0;
   num nextPage = 0;
 
@@ -22,7 +20,7 @@ class SearchCubit extends Cubit<SearchState> {
     try {
       return await searchUseCase.getSearch(
         request: MySearchRequest(
-          query: query,
+          query: state.query.toString(),
           offset: 20 * nextPage,
           limit: 20,
         ),
@@ -45,7 +43,8 @@ class SearchCubit extends Cubit<SearchState> {
       return;
     }
 
-    query = text;
+    emit(state.copyWith(query: text));
+
     nextPage = 0;
 
     emit(

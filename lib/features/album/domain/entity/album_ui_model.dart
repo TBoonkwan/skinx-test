@@ -1,24 +1,54 @@
 import 'package:equatable/equatable.dart';
 
 class AlbumUIModel extends Equatable {
-  final String image;
+  final String logo;
   final String id;
-  final String title;
-  final String subTitle;
+  final String artistName;
+  final String albumName;
+  final String releaseDate;
+  final List<AlbumTrack> tracks;
 
   const AlbumUIModel({
-    required this.image,
+    required this.logo,
     required this.id,
-    required this.title,
-    required this.subTitle,
+    required this.artistName,
+    required this.albumName,
+    required this.releaseDate,
+    required this.tracks,
   });
 
   @override
   // TODO: implement props
   List<Object?> get props => [
-        image,
+        logo,
         id,
+        artistName,
+        albumName,
+        releaseDate,
+        tracks,
+      ];
+}
+
+class AlbumTrack extends Equatable {
+  final String id;
+  final String trackNumber;
+
+  final String title;
+  final String subtitle;
+
+  AlbumTrack({
+    required this.id,
+    required this.trackNumber,
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        id,
+        trackNumber,
         title,
-        subTitle,
+        subtitle,
       ];
 }
