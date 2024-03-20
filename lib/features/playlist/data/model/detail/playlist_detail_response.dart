@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 /// collaborative : false
 /// description : "string"
 /// external_urls : {"spotify":"string"}
@@ -21,7 +23,7 @@ PlaylistDetailResponse playlistDetailReponseFromJson(String str) =>
 String playlistDetailReponseToJson(PlaylistDetailResponse data) =>
     json.encode(data.toJson());
 
-class PlaylistDetailResponse {
+class PlaylistDetailResponse extends Equatable {
   PlaylistDetailResponse({
     this.collaborative,
     this.description,
@@ -141,6 +143,25 @@ class PlaylistDetailResponse {
     map['uri'] = uri;
     return map;
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        this.collaborative,
+        this.description,
+        this.externalUrls,
+        this.followers,
+        this.href,
+        this.id,
+        this.images,
+        this.name,
+        this.owner,
+        this.public,
+        this.snapshotId,
+        this.tracks,
+        this.type,
+        this.uri,
+      ];
 }
 
 /// href : "https://api.spotify.com/v1/me/shows?offset=0&limit=20"

@@ -37,4 +37,11 @@ class PlaylistRepository extends IPlaylistRepository {
       request: request,
     );
   }
+
+  @override
+  Future<PlaylistDetailResponse> getMyPlaylistTrack({required PlaylistDetailRequest request}) async{
+    return await dataSource.getMyPlaylistTracks(
+      request: request,
+    );
+  }
 }

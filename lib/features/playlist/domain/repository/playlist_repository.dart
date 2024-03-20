@@ -16,5 +16,9 @@ abstract class IPlaylistRepository {
   Future<PlaylistDetailResponse> getPlaylistDetail({
     required PlaylistDetailRequest request,
   });
+
+  Future<PlaylistDetailResponse> getMyPlaylistTrack({
+    required PlaylistDetailRequest request,
+  });
 }
 

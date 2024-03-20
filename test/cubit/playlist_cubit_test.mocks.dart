@@ -3,32 +3,22 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i9;
+import 'dart:async' as _i7;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:oauth2_client/access_token_response.dart' as _i6;
+import 'package:oauth2_client/access_token_response.dart' as _i4;
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart'
-    as _i7;
-import 'package:skinx_test/features/authentication/data/repository/spotify_authentication_repository.dart'
-    as _i14;
-import 'package:skinx_test/features/authentication/data/source/remote/spotify_remote_data_source.dart'
     as _i5;
-import 'package:skinx_test/features/playlist/data/model/create/create_new_playlist_request.dart'
-    as _i12;
-import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_request.dart'
-    as _i13;
-import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart'
-    as _i4;
-import 'package:skinx_test/features/playlist/data/model/my_playlist_request.dart'
-    as _i10;
-import 'package:skinx_test/features/playlist/data/model/my_playlist_response.dart'
+import 'package:skinx_test/features/authentication/data/repository/spotify_authentication_repository.dart'
+    as _i9;
+import 'package:skinx_test/features/authentication/data/source/remote/spotify_remote_data_source.dart'
     as _i3;
+import 'package:skinx_test/features/playlist/data/model/my_playlist_request.dart'
+    as _i8;
 import 'package:skinx_test/features/playlist/domain/entity/playlist_ui_model.dart'
     as _i2;
-import 'package:skinx_test/features/playlist/domain/repository/playlist_repository.dart'
-    as _i11;
 import 'package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase.dart'
-    as _i8;
+    as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -53,9 +43,9 @@ class _FakePlaylistModel_0 extends _i1.SmartFake implements _i2.PlaylistModel {
         );
 }
 
-class _FakeMyPlaylistResponse_1 extends _i1.SmartFake
-    implements _i3.MyPlaylistResponse {
-  _FakeMyPlaylistResponse_1(
+class _FakeSpotifyRemoteDataSource_1 extends _i1.SmartFake
+    implements _i3.SpotifyRemoteDataSource {
+  _FakeSpotifyRemoteDataSource_1(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -64,9 +54,9 @@ class _FakeMyPlaylistResponse_1 extends _i1.SmartFake
         );
 }
 
-class _FakePlaylistDetailResponse_2 extends _i1.SmartFake
-    implements _i4.PlaylistDetailResponse {
-  _FakePlaylistDetailResponse_2(
+class _FakeAccessTokenResponse_2 extends _i1.SmartFake
+    implements _i4.AccessTokenResponse {
+  _FakeAccessTokenResponse_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -75,31 +65,9 @@ class _FakePlaylistDetailResponse_2 extends _i1.SmartFake
         );
 }
 
-class _FakeSpotifyRemoteDataSource_3 extends _i1.SmartFake
-    implements _i5.SpotifyRemoteDataSource {
-  _FakeSpotifyRemoteDataSource_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeAccessTokenResponse_4 extends _i1.SmartFake
-    implements _i6.AccessTokenResponse {
-  _FakeAccessTokenResponse_4(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeUserProfileResponse_5 extends _i1.SmartFake
-    implements _i7.UserProfileResponse {
-  _FakeUserProfileResponse_5(
+class _FakeUserProfileResponse_3 extends _i1.SmartFake
+    implements _i5.UserProfileResponse {
+  _FakeUserProfileResponse_3(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -112,21 +80,21 @@ class _FakeUserProfileResponse_5 extends _i1.SmartFake
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockIGetPlaylistUseCase extends _i1.Mock
-    implements _i8.IGetPlaylistUseCase {
+    implements _i6.IGetPlaylistUseCase {
   MockIGetPlaylistUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i9.Future<_i2.PlaylistModel> getPlaylist(
-          {required _i10.MyPlaylistRequest? request}) =>
+  _i7.Future<_i2.PlaylistModel> getPlaylist(
+          {required _i8.MyPlaylistRequest? request}) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPlaylist,
           [],
           {#request: request},
         ),
-        returnValue: _i9.Future<_i2.PlaylistModel>.value(_FakePlaylistModel_0(
+        returnValue: _i7.Future<_i2.PlaylistModel>.value(_FakePlaylistModel_0(
           this,
           Invocation.method(
             #getPlaylist,
@@ -134,130 +102,88 @@ class MockIGetPlaylistUseCase extends _i1.Mock
             {#request: request},
           ),
         )),
-      ) as _i9.Future<_i2.PlaylistModel>);
-}
-
-/// A class which mocks [IPlaylistRepository].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockIPlaylistRepository extends _i1.Mock
-    implements _i11.IPlaylistRepository {
-  MockIPlaylistRepository() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i9.Future<_i3.MyPlaylistResponse> getPlaylist(
-          {required _i10.MyPlaylistRequest? request}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getPlaylist,
-          [],
-          {#request: request},
-        ),
-        returnValue:
-            _i9.Future<_i3.MyPlaylistResponse>.value(_FakeMyPlaylistResponse_1(
-          this,
-          Invocation.method(
-            #getPlaylist,
-            [],
-            {#request: request},
-          ),
-        )),
-      ) as _i9.Future<_i3.MyPlaylistResponse>);
-
-  @override
-  _i9.Future<dynamic> createNewPlaylist(
-          {required _i12.CreateNewPlaylistRequest? request}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #createNewPlaylist,
-          [],
-          {#request: request},
-        ),
-        returnValue: _i9.Future<dynamic>.value(),
-      ) as _i9.Future<dynamic>);
-
-  @override
-  _i9.Future<_i4.PlaylistDetailResponse> getPlaylistDetail(
-          {required _i13.PlaylistDetailRequest? request}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getPlaylistDetail,
-          [],
-          {#request: request},
-        ),
-        returnValue: _i9.Future<_i4.PlaylistDetailResponse>.value(
-            _FakePlaylistDetailResponse_2(
-          this,
-          Invocation.method(
-            #getPlaylistDetail,
-            [],
-            {#request: request},
-          ),
-        )),
-      ) as _i9.Future<_i4.PlaylistDetailResponse>);
+      ) as _i7.Future<_i2.PlaylistModel>);
 }
 
 /// A class which mocks [SpotifyAuthenticationRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSpotifyAuthenticationRepository extends _i1.Mock
-    implements _i14.SpotifyAuthenticationRepository {
+    implements _i9.SpotifyAuthenticationRepository {
   MockSpotifyAuthenticationRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.SpotifyRemoteDataSource get spotifyDataSource => (super.noSuchMethod(
+  _i3.SpotifyRemoteDataSource get spotifyDataSource => (super.noSuchMethod(
         Invocation.getter(#spotifyDataSource),
-        returnValue: _FakeSpotifyRemoteDataSource_3(
+        returnValue: _FakeSpotifyRemoteDataSource_1(
           this,
           Invocation.getter(#spotifyDataSource),
         ),
-      ) as _i5.SpotifyRemoteDataSource);
+      ) as _i3.SpotifyRemoteDataSource);
 
   @override
-  _i9.Future<_i6.AccessTokenResponse> authentication() => (super.noSuchMethod(
+  _i7.Future<_i4.AccessTokenResponse> authentication() => (super.noSuchMethod(
         Invocation.method(
           #authentication,
           [],
         ),
-        returnValue: _i9.Future<_i6.AccessTokenResponse>.value(
-            _FakeAccessTokenResponse_4(
+        returnValue: _i7.Future<_i4.AccessTokenResponse>.value(
+            _FakeAccessTokenResponse_2(
           this,
           Invocation.method(
             #authentication,
             [],
           ),
         )),
-      ) as _i9.Future<_i6.AccessTokenResponse>);
+      ) as _i7.Future<_i4.AccessTokenResponse>);
 
   @override
-  _i9.Future<_i7.UserProfileResponse> getUserProfile() => (super.noSuchMethod(
+  _i7.Future<_i4.AccessTokenResponse> refreshToken(
+          {required String? refreshToken}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #refreshToken,
+          [],
+          {#refreshToken: refreshToken},
+        ),
+        returnValue: _i7.Future<_i4.AccessTokenResponse>.value(
+            _FakeAccessTokenResponse_2(
+          this,
+          Invocation.method(
+            #refreshToken,
+            [],
+            {#refreshToken: refreshToken},
+          ),
+        )),
+      ) as _i7.Future<_i4.AccessTokenResponse>);
+
+  @override
+  _i7.Future<_i5.UserProfileResponse> getUserProfile() => (super.noSuchMethod(
         Invocation.method(
           #getUserProfile,
           [],
         ),
-        returnValue: _i9.Future<_i7.UserProfileResponse>.value(
-            _FakeUserProfileResponse_5(
+        returnValue: _i7.Future<_i5.UserProfileResponse>.value(
+            _FakeUserProfileResponse_3(
           this,
           Invocation.method(
             #getUserProfile,
             [],
           ),
         )),
-      ) as _i9.Future<_i7.UserProfileResponse>);
+      ) as _i7.Future<_i5.UserProfileResponse>);
 
   @override
-  _i9.Future<dynamic> saveUserProfile(
-          {required _i7.UserProfileResponse? userProfileResponse}) =>
+  _i7.Future<dynamic> saveUserProfile(
+          {required _i5.UserProfileResponse? userProfileResponse}) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveUserProfile,
           [],
           {#userProfileResponse: userProfileResponse},
         ),
-        returnValue: _i9.Future<dynamic>.value(),
-      ) as _i9.Future<dynamic>);
+        returnValue: _i7.Future<dynamic>.value(),
+      ) as _i7.Future<dynamic>);
 }

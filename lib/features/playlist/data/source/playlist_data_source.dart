@@ -16,4 +16,8 @@ abstract class PlaylistDataSource {
   Future<PlaylistDetailResponse> getPlaylistDetail({
     required PlaylistDetailRequest request,
   });
+
+  Future<PlaylistDetailResponse> getMyPlaylistTracks({
+    required PlaylistDetailRequest request,
+  });
 }

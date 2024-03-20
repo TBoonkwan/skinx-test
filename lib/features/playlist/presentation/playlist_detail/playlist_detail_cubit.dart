@@ -19,6 +19,19 @@ class PlaylistDetailCubit extends Cubit<PlaylistDetailState> {
       offset: 0,
       limit: 20,
     );
-    final PlaylistDetailResponse response =  await playlistRepository.getPlaylistDetail(request: request);
+    final PlaylistDetailResponse response = await playlistRepository.getPlaylistDetail(request: request);
+    emit(
+      state.copyWith(
+        playlistDetailResponse: response,
+        eventState: PlaylistDetailEventState.success,
+      ),
+    );
+  }
+
+  String getImageUrl(List<Images>? images) {
+    if (images?.isEmpty == true) {
+      return "";
+    }
+    return images?.first.url ?? "";
   }
 }
