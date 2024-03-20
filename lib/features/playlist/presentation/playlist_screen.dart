@@ -202,11 +202,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                     final item = state.playlist[index];
                     return MyPlaylistItem(
                       item: item,
-                      onClicked: (id) {
-                        Navigator.of(context).pushNamed(
+                      onClicked: (id) async{
+                        await Navigator.of(context).pushNamed(
                           PlaylistRoute.playlistDetail,
                           arguments: id,
                         );
+                        cubit.reloadPlaylist();
                       },
                     );
                   },
