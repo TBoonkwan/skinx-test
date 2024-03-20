@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 /// country : "string"
 /// display_name : "string"
 /// email : "string"
@@ -19,7 +21,7 @@ UserProfileResponse userProfileResponseFromJson(String str) =>
 String userProfileResponseToJson(UserProfileResponse data) =>
     json.encode(data.toJson());
 
-class UserProfileResponse {
+class UserProfileResponse extends Equatable{
   UserProfileResponse({
     this.country,
     this.displayName,
@@ -127,6 +129,23 @@ class UserProfileResponse {
     map['uri'] = uri;
     return map;
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+    this.country,
+    this.displayName,
+    this.email,
+    this.explicitContent,
+    this.externalUrls,
+    this.followers,
+    this.href,
+    this.id,
+    this.images,
+    this.product,
+    this.type,
+    this.uri,
+  ];
 }
 
 /// url : "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"
