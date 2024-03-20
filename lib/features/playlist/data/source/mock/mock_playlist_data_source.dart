@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:skinx_test/features/playlist/data/model/create/create_new_playlist_request.dart';
 import 'package:skinx_test/features/playlist/data/model/my_playlist_request.dart';
 import 'package:skinx_test/features/playlist/data/model/my_playlist_response.dart';
 import 'package:skinx_test/features/playlist/data/source/playlist_data_source.dart';
@@ -16,5 +17,10 @@ class MockPlaylistDataSource extends PlaylistDataSource {
 
     final Map<String, dynamic> data = jsonDecode(response);
     return MyPlaylistResponse.fromJson(data);
+  }
+
+  @override
+  Future createNewPlaylist({required CreateNewPlaylistRequest request}) async {
+    return;
   }
 }

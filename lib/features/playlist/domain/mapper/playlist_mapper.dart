@@ -11,12 +11,23 @@ class PlaylistMapper {
 
     final List<PlaylistUIModel> uiModel = [];
     response.items?.forEach((element) {
+      String imageUrl = "";
+      String description = "N/A";
+
+      if (element.images?.isNotEmpty == true) {
+        imageUrl = element.images?.first.url ?? "";
+      }
+
+      if (element.description?.isNotEmpty == true) {
+        description = element.description ?? "";
+      }
+
       uiModel.add(
         PlaylistUIModel(
-          image: element.images?.first.url ?? "",
+          image: imageUrl,
           id: element.id ?? "",
           title: element.name ?? "",
-          subTitle: element.description ?? "",
+          subTitle: description,
         ),
       );
     });

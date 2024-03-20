@@ -8,12 +8,12 @@ class AlbumMapper {
   }) {
     final List<AlbumTrack> tracks = [];
     response.tracks?.items?.forEach((element) {
-      final int duration =
-          Duration(milliseconds: element.durationMs?.toInt() ?? 0).inMinutes;
+      final int inMinutes = Duration(milliseconds: element.durationMs?.toInt() ?? 0).inMinutes;
+      final int inSeconds = Duration(milliseconds: element.durationMs?.toInt() ?? 0).inSeconds;
       tracks.add(AlbumTrack(
         id: element.id ?? "",
         title: element.name ?? "",
-        subtitle: "${response.artists?.first.name} : $duration",
+        subtitle: "${response.artists?.first.name} : $inMinutes:$inSeconds",
         trackNumber: element.trackNumber.toString(),
       ));
     });

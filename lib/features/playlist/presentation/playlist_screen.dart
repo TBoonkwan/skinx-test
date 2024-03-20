@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skinx_test/features/authentication/data/model/user_profile_response.dart';
+import 'package:skinx_test/features/playlist/config/playlist_route.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_cubit.dart';
 import 'package:skinx_test/features/playlist/presentation/playlist_state.dart';
 import 'package:skinx_test/features/search/config/search_route.dart';
@@ -115,7 +116,9 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(PlaylistRoute.createPlaylistScreen);
+          },
           child: const Icon(
             Icons.add,
             color: AppColor.brandingColor,
@@ -167,7 +170,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                     16,
                   ),
                   gridDelegate: const GridViewFixHeight(
-                    height: 208,
+                    height: 209,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
                     crossAxisCount: 2,
@@ -181,11 +184,19 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            item.image,
-                            height: 160,
-                            fit: BoxFit.cover,
-                          ),
+                          child: Builder(builder: (context) {
+                            if (item.image.isEmpty == true) {
+                              return const Icon(
+                                Icons.photo,
+                                size: 160,
+                              );
+                            }
+                            return Image.network(
+                              item.image,
+                              height: 160,
+                              fit: BoxFit.cover,
+                            );
+                          }),
                         ),
                         const SizedBox(
                           height: 4,
