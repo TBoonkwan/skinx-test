@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:skinx_test/features/playlist/data/model/add/add_track_request.dart';
 import 'package:skinx_test/features/playlist/data/model/create/create_new_playlist_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart';
@@ -37,6 +38,17 @@ class RemotePlaylistDataSource extends PlaylistDataSource {
     var response = await dio.get(
       "playlists/${request.playlistId}",
       queryParameters: request.toJson(),
+    );
+    return PlaylistDetailResponse.fromJson(response.data);
+  }
+
+  @override
+  Future addTracksToPlaylist({
+    required AddTrackRequest request,
+  }) async {
+    var response = await dio.post(
+      "playlists/${request.playlistId}/tracks",
+      data: request.toJson(),
     );
     return PlaylistDetailResponse.fromJson(response.data);
   }

@@ -1,3 +1,4 @@
+import 'package:skinx_test/features/playlist/data/model/add/add_track_request.dart';
 import 'package:skinx_test/features/playlist/data/model/create/create_new_playlist_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart';
@@ -34,6 +35,13 @@ class PlaylistRepository extends IPlaylistRepository {
     required PlaylistDetailRequest request,
   }) async {
     return await dataSource.getPlaylistDetail(
+      request: request,
+    );
+  }
+
+  @override
+  Future addTracksToPlaylist({required AddTrackRequest request}) async {
+    return await dataSource.addTracksToPlaylist(
       request: request,
     );
   }

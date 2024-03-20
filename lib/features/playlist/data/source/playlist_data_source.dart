@@ -1,3 +1,4 @@
+import 'package:skinx_test/features/playlist/data/model/add/add_track_request.dart';
 import 'package:skinx_test/features/playlist/data/model/create/create_new_playlist_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_request.dart';
 import 'package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart';
@@ -15,5 +16,9 @@ abstract class PlaylistDataSource {
 
   Future<PlaylistDetailResponse> getPlaylistDetail({
     required PlaylistDetailRequest request,
+  });
+
+  Future addTracksToPlaylist({
+    required AddTrackRequest request,
   });
 }

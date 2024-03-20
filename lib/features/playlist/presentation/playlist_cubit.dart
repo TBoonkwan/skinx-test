@@ -12,7 +12,27 @@ import "package:skinx_test/features/playlist/domain/usecase/get_playlist_usecase
 
 import "playlist_state.dart";
 
-class PlaylistCubit extends Cubit<PlaylistState> {
+mixin GetMyPlaylist {
+  Future<PlaylistModel> getMyPlaylist({
+    required IGetPlaylistUseCase playlistUseCase,
+    required num nextPage,
+    required String id,
+  }) async {
+    try {
+      return await playlistUseCase.getPlaylist(
+        request: MyPlaylistRequest(
+          offset: nextPage,
+          limit: 20,
+          userId: id.toString(),
+        ),
+      );
+    } on DioException {
+      throw AppException();
+    }
+  }
+}
+
+class PlaylistCubit extends Cubit<PlaylistState> with GetMyPlaylist {
   IGetPlaylistUseCase playlistUseCase;
 
   SpotifyAuthenticationRepository spotifyRepository;
@@ -30,29 +50,15 @@ class PlaylistCubit extends Cubit<PlaylistState> {
     final GetStorage storage = GetStorage();
     final String? refreshToken = storage.read(AppConstants.refreshToken);
     if (refreshToken != null) {
-      response = await spotifyRepository.refreshToken(refreshToken: refreshToken);
+      response = await spotifyRepository.refreshToken(
+        refreshToken: refreshToken,
+      );
     } else {
       response = await spotifyRepository.authentication();
     }
 
     await storage.write(AppConstants.accessToken, response.accessToken);
     await storage.write(AppConstants.refreshToken, response.refreshToken);
-  }
-
-  Future<PlaylistModel> getMyPlaylist({
-    required String id,
-  }) async {
-    try {
-      return await playlistUseCase.getPlaylist(
-        request: MyPlaylistRequest(
-          offset: nextPage,
-          limit: 20,
-          userId: id.toString(),
-        ),
-      );
-    } on DioException {
-      throw AppException();
-    }
   }
 
   Future initial() async {
@@ -64,13 +70,15 @@ class PlaylistCubit extends Cubit<PlaylistState> {
 
     await authentication();
 
-    UserProfileResponse userProfileResponse = await spotifyRepository.getUserProfile();
+    UserProfileResponse userProfileResponse =
+        await spotifyRepository.getUserProfile();
 
     emit(state.copyWith(
       userProfileResponse: userProfileResponse,
     ));
 
-    await spotifyRepository.saveUserProfile(userProfileResponse: userProfileResponse);
+    await spotifyRepository.saveUserProfile(
+        userProfileResponse: userProfileResponse);
 
     await reloadPlaylist();
   }
@@ -82,6 +90,8 @@ class PlaylistCubit extends Cubit<PlaylistState> {
   Future reloadPlaylist() async {
     try {
       final PlaylistModel model = await getMyPlaylist(
+        playlistUseCase: playlistUseCase,
+        nextPage: nextPage,
         id: state.userProfileResponse?.id ?? "",
       );
 

@@ -89,10 +89,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ),
           actions: [
             IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(
+              onPressed: () async {
+                await Navigator.of(context).pushNamed(
                   SearchRoute.searchScreen,
                 );
+                cubit.reloadPlaylist();
+
               },
               icon: const Icon(
                 Icons.search,
@@ -134,8 +136,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            var result = await Navigator.of(context)
-                .pushNamed(PlaylistRoute.createPlaylistScreen);
+            var result = await Navigator.of(context).pushNamed(PlaylistRoute.createPlaylistScreen);
             if (result != null) {
               cubit.reloadPlaylist();
             }

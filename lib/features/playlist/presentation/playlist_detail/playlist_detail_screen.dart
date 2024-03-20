@@ -3,6 +3,7 @@ import "package:flutter_bloc/flutter_bloc.dart";
 import "package:skinx_test/features/playlist/data/model/detail/playlist_detail_response.dart";
 import "package:skinx_test/features/playlist/presentation/playlist_detail/playlist_detail_cubit.dart";
 import "package:skinx_test/features/playlist/presentation/playlist_detail/playlist_detail_state.dart";
+import "package:skinx_test/features/search/config/search_route.dart";
 import "package:skinx_test/shared/loading/loading_indicator.dart";
 import "package:skinx_test/theme/color/app_color.dart";
 
@@ -95,6 +96,26 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                   SliverList(
                     delegate: SliverChildListDelegate(
                       [
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(SearchRoute.searchScreen);
+                            },
+                            style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                backgroundColor: Colors.white),
+                            child: const Text(
+                              "Add to this playlist",
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 24,
+                        ),
                         ListView.separated(
                           shrinkWrap: true,
                           primary: false,
@@ -102,8 +123,7 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             final item = response?.tracks?.items?[index];
                             return ListTile(
-                              leading: Image.network(
-                                  item?.track?.album?.images?.first.url ?? ""),
+                              leading: Image.network(item?.track?.album?.images?.first.url ?? ""),
                               title: Text(
                                 item?.track?.name ?? "",
                                 style: Theme.of(context)
@@ -116,8 +136,7 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelLarge
-                                    ?.copyWith(
-                                        color: AppColor.tertiaryTextColor),
+                                    ?.copyWith(color: AppColor.tertiaryTextColor),
                               ),
                               trailing: IconButton(
                                 icon: const Icon(
