@@ -306,6 +306,14 @@ class AlbumDetailContent extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final item = albumUIModel?.tracks[index];
               return ListTile(
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    PlaylistRoute.addTracks,
+                    arguments: [
+                      item,
+                    ],
+                  );
+                },
                 leading: Text(
                   item?.trackNumber ?? "",
                   style: Theme.of(context)
