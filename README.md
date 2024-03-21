@@ -19,3 +19,6 @@ We using mvvm + clean in this project
 
 # State management
 We using BLoC
+
+# Noted
+We can't test in iOS right now.
