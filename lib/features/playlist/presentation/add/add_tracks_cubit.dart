@@ -11,6 +11,7 @@ import "package:skinx_test/features/playlist/presentation/add/add_tracks_state.d
 import "package:skinx_test/features/playlist/presentation/playlist_cubit.dart";
 
 class AddTracksCubit extends Cubit<AddTracksState> with GetMyPlaylist {
+
   AddTracksCubit({
     required this.playlistRepository,
     required this.getPlaylistUseCase,
@@ -21,25 +22,32 @@ class AddTracksCubit extends Cubit<AddTracksState> with GetMyPlaylist {
   final IGetPlaylistUseCase getPlaylistUseCase;
 
   final SpotifyAuthenticationRepository spotifyRepository;
+  UserProfileResponse? userProfileResponse;
 
   String playlistId = '';
 
-  void setupTrack(List<AlbumTrack> tracks){
+  Future setupTrack(List<AlbumTrack> tracks)async {
+    userProfileResponse = await spotifyRepository.getUserProfile();
+
     emit(state.copyWith(tracks: tracks));
   }
 
   Future getPlaylist() async {
-    UserProfileResponse userProfileResponse =
-        await spotifyRepository.getUserProfile();
-
+    emit(
+      state.copyWith(
+        playlists: [],
+        eventState: AddTracksPageEventState.loading,
+      ),
+    );
 
     final PlaylistModel model = await getMyPlaylist(
       playlistUseCase: getPlaylistUseCase,
       nextPage: 0,
-      id: userProfileResponse.id ?? "",
+      id: userProfileResponse?.id ?? "",
     );
 
     List<PlaylistUIModel> uiModel = model.uiModel;
+
     emit(
       state.copyWith(
         playlists: uiModel,

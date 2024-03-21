@@ -53,8 +53,7 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
             }
 
             if (state.eventState == PlaylistDetailEventState.success) {
-              final PlaylistDetailResponse? response =
-                  state.playlistDetailResponse;
+              final PlaylistDetailResponse? response = state.playlistDetailResponse;
               final String image = cubit.getImageUrl(response?.images);
 
               return CustomScrollView(

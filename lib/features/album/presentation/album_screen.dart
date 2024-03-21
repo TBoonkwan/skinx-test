@@ -304,12 +304,12 @@ class AlbumDetailContent extends StatelessWidget {
             primary: false,
             padding: const EdgeInsets.symmetric(vertical: 16),
             itemBuilder: (BuildContext context, int index) {
-              final item = albumUIModel?.tracks[index];
+              final item = albumUIModel.tracks[index];
               return ListTile(
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     PlaylistRoute.addTracks,
-                    arguments: [
+                    arguments: <AlbumTrack>[
                       item,
                     ],
                   );

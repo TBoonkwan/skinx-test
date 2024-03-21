@@ -20,11 +20,6 @@ class _SearchScreenState extends State<SearchScreen> {
   TextEditingController controller = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final SearchCubit cubit = context.read<SearchCubit>();
     controller.text = cubit.state.query.toString();

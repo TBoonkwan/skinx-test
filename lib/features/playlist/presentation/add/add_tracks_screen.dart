@@ -93,10 +93,14 @@ class _AddTracksScreenState extends State<AddTracksScreen> {
                   final item = state.playlists[index];
                   return ListTile(
                     onTap: () {
+                      AddTracksCubit cubit = context.read<AddTracksCubit>();
+
                       Navigator.of(context).pushNamed(
                         PlaylistRoute.playlistDetail,
                         arguments: item.id,
                       );
+
+                      cubit.getPlaylist();
                     },
                     leading: Builder(builder: (context) {
                       if (item.image.isEmpty == true) {
