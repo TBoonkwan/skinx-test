@@ -1,7 +1,13 @@
-# skinx_test
-
 # SkinXTest
-This project make for SkinX Test
+This is a Flutter app that for technical test to simulatea a clone spotify mobile app.
+
+# Feature
+- Playlist
+  - Add track to playlist
+  - See your playlist
+- Search
+  - Can search album
+  - See album detail
 
 # Required
 - Flutter **3.16.9**
